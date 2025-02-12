@@ -1,8 +1,8 @@
 //
 //  UserProfile.swift
-//  Radiant
+//  AI-therapist
 //
-//  Created by Ben Dreyer on 5/7/23.
+//  Created by Akniyet Turdybay on 17/01/25.
 //
 
 import Foundation
@@ -23,11 +23,9 @@ struct UserProfile: Codable {
     var userPhotoNonPremium: String?
     
     var lastCheckinDate: String?
-//    var checkIns: [CheckIn]?
     
     // Login Info
     var hasUserCompletedWelcomeSurvey: Bool?
-//    var hasUserEnteredBetaCode: Bool?
     
     // Premium Features
     var isPremiumUser: Bool?

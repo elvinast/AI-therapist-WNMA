@@ -1,8 +1,8 @@
 //
-//  RadiantApp.swift
-//  Radiant
+//  AI-therapistApp.swift
+//  AI-therapist
 //
-//  Created by Ben Dreyer on 5/2/23.
+//  Created by Akniyet Turdybay on 15/12/24.
 //
 
 import SwiftUI
@@ -10,21 +10,15 @@ import FirebaseCore
 import FirebaseFirestore
 import FirebaseAuth
 import FirebaseStorage
-//import GoogleMobileAds
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        // Use Firebase library to configure APIs.
         FirebaseApp.configure()
         let db = Firestore.firestore()
         let storage = Storage.storage()
         print("Database: \(db)")
-        
-//        // Initialize the Google Mobile Ads SDK.
-//        GADMobileAds.sharedInstance().start(completionHandler: nil)
-        
-        // print the login status of the user
+    
         if let loginStatus = UserDefaults.standard.object(forKey: loginStatusKey) as? Bool {
             print("User login status on app launch finish: \( loginStatus )")
         } else {
@@ -37,7 +31,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 }
 
 @main
-struct RadiantApp: App {
+struct AITherapistApp: App {
     // register app delegate for Firebase setup
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     

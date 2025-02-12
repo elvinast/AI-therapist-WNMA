@@ -1,8 +1,8 @@
 //
 //  JournalingPromptsActivityView.swift
-//  Radiant
+//  AI-therapist
 //
-//  Created by Ben Dreyer on 8/5/23.
+//  Created by Akniyet Turdybay on 15/01/25.
 //
 
 import SwiftUI

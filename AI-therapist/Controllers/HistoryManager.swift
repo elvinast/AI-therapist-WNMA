@@ -1,8 +1,8 @@
 //
 //  HistoryManager.swift
-//  Radiant
+//  AI-therapist
 //
-//  Created by Ben Dreyer on 8/12/23.
+//  Created by Akniyet Turdybay on 18/12/24.
 //
 
 import Foundation

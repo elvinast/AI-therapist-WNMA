@@ -1,8 +1,8 @@
 //
 //  CirclularSlider.swift
-//  Radiant
+//  AI-therapist
 //
-//  Created by Ben Dreyer on 7/17/23.
+//  Created by Akniyet Turdybay on 18/12/24.
 //
 
 import SwiftUI
@@ -12,23 +12,10 @@ struct CirclularSlider: View {
     
     var body: some View {
         ZStack {
-//            Rectangle()
-//                .fill(Color.init(red: 34/255, green: 30/255, blue: 47/255))
-//                .edgesIgnoringSafeArea(.all)
-            
             SliderControlView(sliderValue: $sliderValue)
         }
     }
 }
-
-//struct CirclularSlider_Previews: PreviewProvider {
-//    @State private var val: CGFloat = 5.0
-//
-//    static var previews: some View {
-//        CirclularSlider($val)
-//    }
-//}
-
 
 struct SliderControlView: View {
     @Binding var sliderValue: Double
@@ -93,7 +80,6 @@ struct SliderControlView: View {
         }
     }
 }
-
 
 struct Config {
     let minimumValue: CGFloat

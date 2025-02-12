@@ -1,14 +1,11 @@
 //
 //  UserDefaults.swift
-//  Radiant
+//  AI-therapist
 //
-//  Created by Ben Dreyer on 5/5/23.
+//  Created by Akniyet Turdybay on 7/02/25.
 //
 
 import Foundation
-
-
-
 
 // User Defaults for logging in a returning user
 let emailKey = "email"

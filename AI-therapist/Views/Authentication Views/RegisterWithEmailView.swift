@@ -1,8 +1,8 @@
 //
 //  RegisterWithEmailPopupView.swift
-//  Radiant
+//  AI-therapist
 //
-//  Created by Ben Dreyer on 5/3/23.
+//  Created by Akniyet Turdybay on 11/01/25.
 //
 
 import SwiftUI
@@ -85,7 +85,6 @@ struct RegisterWithEmailView: View {
         }
     }
 }
-
 
 struct RegisterWithEmailView_Previews: PreviewProvider {
     static var previews: some View {

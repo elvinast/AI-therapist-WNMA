@@ -1,6 +1,6 @@
 //
 //  StagesOfGriefView.swift
-//  Radiant
+//  AI-therapist
 //
 //  Created by Viiktoria Voevodina on 09/02/25.
 //

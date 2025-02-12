@@ -1,6 +1,6 @@
 //
 //  HomeManager.swift
-//  Radiant
+//  AI-therapist
 //
 //  Created by Viiktoria Voevodina on 12/01/25.
 //

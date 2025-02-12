@@ -1,15 +1,13 @@
 //
 //  FirebaseImage.swift
-//  Radiant
+//  AI-therapist
 //
-//  Created by Ben Dreyer on 8/2/23.
+//  Created by Akniyet Turdybay on 24/12/24.
 //
 
 import SwiftUI
 import Combine
 import FirebaseStorage
-
-
 
 struct FirebaseImage: View {
     
@@ -33,6 +31,6 @@ struct FirebaseImage: View {
 
 struct FirebaseImage_Previews: PreviewProvider {
     static var previews: some View {
-        FirebaseImage(id: "RadiantBotPic.png")
+        FirebaseImage(id: "AI-therapistBotPic.png")
     }
 }

@@ -1,8 +1,8 @@
 //
 //  HealthyRelationshipActivityView.swift
-//  Radiant
+//  AI-therapist
 //
-//  Created by Ben Dreyer on 8/4/23.
+//  Created by Akniyet Turdybay on 24/01/25.
 //
 
 import SwiftUI

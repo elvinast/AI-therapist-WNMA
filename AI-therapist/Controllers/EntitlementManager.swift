@@ -1,15 +1,15 @@
 //
 //  EntitlementManager.swift
-//  Radiant
+//  AI-therapist
 //
-//  Created by Ben Dreyer on 10/22/23.
+//  Created by Akniyet Turdybay on 6/01/25.
 //
 
 import Foundation
 import SwiftUI
 
 class EntitlementManager: ObservableObject {
-    static let userDefaults = UserDefaults(suiteName: "group.radiant")!
+    static let userDefaults = UserDefaults(suiteName: "group.AI-therapist")!
     
     @AppStorage("hasPro", store: userDefaults)
     var hasPro: Bool = false

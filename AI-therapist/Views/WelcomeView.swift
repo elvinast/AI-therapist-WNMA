@@ -1,8 +1,8 @@
 //
 //  WelcomeView.swift
-//  Radiant
+//  AI-therapist
 //
-//  Created by Ben Dreyer on 5/2/23.
+//  Created by Akniyet Turdybay on 27/12/24.
 //
 
 import SwiftUI

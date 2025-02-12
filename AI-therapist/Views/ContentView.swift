@@ -1,8 +1,8 @@
 //
 //  ContentView.swift
-//  Radiant
+//  AI-therapist
 //
-//  Created by Ben Dreyer on 5/2/23.
+//  Created by Akniyet Turdybay on 23/12/24.
 //
 
 import SwiftUI
@@ -23,12 +23,10 @@ struct ContentView: View {
             // Show the WelcomeView or Register View depending on user login status stored in userDefaults
             if let loginStatus = UserDefaults.standard.object(forKey: loginStatusKey) as? Bool {
                 
-                
                 // Show the register / login screen either if the loginStatus is nil, or false
                 if loginStatus == false {
                     RegisterView()
                 }
-                
                 
                 // Main App Flow
                 if loginStatus == true {
@@ -44,7 +42,6 @@ struct ContentView: View {
                             }
                         }
                     
-                    
                     // Welcome Survey flow
                     // if this is user's first time signing into the app, show Welcome Survey
                     
@@ -53,25 +50,6 @@ struct ContentView: View {
                             WelcomeSurveyView()
                         }
                     }
-                    
-                    // this might be too slow
-//                    if let hasUserCompletedWelcomeSurvey = profileStateManager.userProfile?.hasUserCompletedWelcomeSurvey {
-//                        if hasUserCompletedWelcomeSurvey == false {
-//                            WelcomeSurveyView()
-//                        }
-//                    } else {
-//                        Text("Too slow")
-//                    }
-                    
-//                    if let userProf = profileStateManager.userProfile {
-//                        if let has = userProf.hasUserCompletedWelcomeSurvey {
-//                            if has == false {
-//                                WelcomeSurveyView()
-//                            }
-//                        }
-//                    }
-                } else {
-//                    RegisterView()
                 }
             } else {
                 Text("No user default set")

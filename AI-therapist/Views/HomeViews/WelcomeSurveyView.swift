@@ -1,6 +1,6 @@
 //
 //  WelcomeSurveyView.swift
-//  Radiant
+//  AI-therapist
 //
 //  Created by Elvina Shamoi on 09/01/25.
 //
@@ -24,7 +24,7 @@ struct WelcomeSurveyView: View {
                 .edgesIgnoringSafeArea(.all)
             
             VStack(alignment: .center) {
-                Text("Welcome to Radiant")
+                Text("Welcome to AI-therapist")
                     .font(.system(size: 24, design: .serif))
                     .padding(.bottom, 40)
                     .foregroundColor(.black)
@@ -268,7 +268,7 @@ struct WelcomeSurveyView: View {
                             RoundedRectangle(cornerRadius: 25)
                                 .frame(maxWidth: 240, minHeight: 60)
                                 .overlay {
-                                    Text("Continue to Radiant")
+                                    Text("Continue to AI-therapist")
                                         .foregroundColor(.white)
                                         .font(.system(size: 20, design: .serif))
                                 }

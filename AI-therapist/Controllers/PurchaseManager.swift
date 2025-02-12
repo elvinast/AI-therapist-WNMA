@@ -1,8 +1,8 @@
 //
 //  PurchaseManager.swift
-//  Radiant
+//  AI-therapist
 //
-//  Created by Ben Dreyer on 10/15/23.
+//  Created by Akniyet Turdybay on 28/12/24.
 //
 
 import Foundation

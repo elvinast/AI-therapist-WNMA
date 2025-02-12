@@ -1,6 +1,6 @@
 //
 //  HomeMainView.swift
-//  Radiant
+//  AI-therapist
 //
 //  Created by Elvina Shamoi on 22/12/24.
 //
@@ -27,7 +27,7 @@ struct HomeMainView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Image("Radiant_Home_BG")
+                Image("AI-therapist_Home_BG")
                     .resizable()
                     .scaledToFill()
                     .edgesIgnoringSafeArea(.all)
@@ -83,8 +83,8 @@ struct HomeMainView: View {
                         //                            .offset(x: -20, y:-10)
                         Spacer()
                         
-                        // Radiant Icon
-                        Image("Radiant_App_Icon_Transparent")
+                        // AI-therapist Icon
+                        Image("AI-therapist_App_Icon_Transparent")
                             .resizable()
                             .frame(width: 60, height: 60)
                     }

@@ -1,6 +1,6 @@
 ////
 ////  BetaTestValidationView.swift
-////  Radiant
+////  AI-therapist
 ////
 ////  Created by Ben Dreyer on 7/28/23.
 ////
@@ -24,7 +24,7 @@
 //            
 //            VStack {
 //                ScrollView {
-//                    Text("Welcome to the Radiant Beta!")
+//                    Text("Welcome to the AI-therapist Beta!")
 //                        .foregroundColor(.black)
 //                        .font(.system(size: 26, design: .serif))
 //                        .padding(.top, 200)

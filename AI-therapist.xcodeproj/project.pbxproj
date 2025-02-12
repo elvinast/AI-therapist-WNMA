@@ -53,7 +53,6 @@
 		1A98C4612A0AC75700BB3203 /* ProfileSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A98C4602A0AC75600BB3203 /* ProfileSettingsView.swift */; };
 		1AAF79FD2A6E0D85005AA26B /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAF79FC2A6E0D85005AA26B /* ActivityView.swift */; };
 		1AAF79FF2A6E0E12005AA26B /* EducationArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAF79FE2A6E0E12005AA26B /* EducationArticleView.swift */; };
-		1AAF7A012A748C5F005AA26B /* BetaTestValidationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAF7A002A748C5F005AA26B /* BetaTestValidationView.swift */; };
 		1AAF7A032A75B06E005AA26B /* WelcomeSurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAF7A022A75B06E005AA26B /* WelcomeSurveyView.swift */; };
 		1AB0B81E2A1BD7C100DF1571 /* ForumDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0B81D2A1BD7C100DF1571 /* ForumDetailedView.swift */; };
 		1AB0B8202A1D2B5300DF1571 /* ForumPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0B81F2A1D2B5300DF1571 /* ForumPost.swift */; };
@@ -115,14 +114,11 @@
 		1A8CCE122A7B4901001D5D55 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		1A92F9B32A0411BE000C2AE3 /* AuthStatusManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStatusManager.swift; sourceTree = "<group>"; };
 		1A92F9B52A056A3A000C2AE3 /* AI-therapist.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "AI-therapist.entitlements"; sourceTree = "<group>"; };
-		1A92F9B82A05732D000C2AE3 /* AuthStatusManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStatusManagerTests.swift; sourceTree = "<group>"; };
 		1A92F9BB2A0573D3000C2AE3 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		1A92F9E32A0578FE000C2AE3 /* UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTests.swift; sourceTree = "<group>"; };
 		1A98C45E2A0ABE9E00BB3203 /* ProfileStatusManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStatusManager.swift; sourceTree = "<group>"; };
 		1A98C4602A0AC75600BB3203 /* ProfileSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsView.swift; sourceTree = "<group>"; };
 		1AAF79FC2A6E0D85005AA26B /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		1AAF79FE2A6E0E12005AA26B /* EducationArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationArticleView.swift; sourceTree = "<group>"; };
-		1AAF7A002A748C5F005AA26B /* BetaTestValidationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetaTestValidationView.swift; sourceTree = "<group>"; };
 		1AAF7A022A75B06E005AA26B /* WelcomeSurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeSurveyView.swift; sourceTree = "<group>"; };
 		1AB0B81D2A1BD7C100DF1571 /* ForumDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumDetailedView.swift; sourceTree = "<group>"; };
 		1AB0B81F2A1D2B5300DF1571 /* ForumPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumPost.swift; sourceTree = "<group>"; };
@@ -273,20 +269,10 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1A92F9E22A0578FE000C2AE3 /* UnitTests */ = {
-			isa = PBXGroup;
-			children = (
-				1A92F9B82A05732D000C2AE3 /* AuthStatusManagerTests.swift */,
-				1A92F9E32A0578FE000C2AE3 /* UnitTests.swift */,
-			);
-			path = UnitTests;
-			sourceTree = "<group>";
-		};
 		1AC9903A2A01703B00851A14 = {
 			isa = PBXGroup;
 			children = (
 				1AC990452A01703B00851A14 /* AI-therapist */,
-				1A92F9E22A0578FE000C2AE3 /* UnitTests */,
 				1AC990442A01703B00851A14 /* Products */,
 				1A92F9BA2A0573D3000C2AE3 /* Frameworks */,
 			);
@@ -379,7 +365,6 @@
 				1A8C6C172A0202F200676E5F /* LoginWithEmailView.swift */,
 				1A8C6C192A02122800676E5F /* RegisterView.swift */,
 				1A8C6C1B2A02E15E00676E5F /* RegisterWithEmailView.swift */,
-				1AAF7A002A748C5F005AA26B /* BetaTestValidationView.swift */,
 			);
 			path = "Authentication Views";
 			sourceTree = "<group>";
@@ -486,7 +471,6 @@
 				1AAF79FF2A6E0E12005AA26B /* EducationArticleView.swift in Sources */,
 				1AB0B8222A1D2C2B00DF1571 /* ForumPostComment.swift in Sources */,
 				1A1D6DFE2A805DE500A23807 /* MapManager.swift in Sources */,
-				1AAF7A012A748C5F005AA26B /* BetaTestValidationView.swift in Sources */,
 				1A195C8F2A229D4A00749695 /* ForumSinglePostView.swift in Sources */,
 				1A6585E62A29104B00B4DE6D /* ChatManager.swift in Sources */,
 				1AB0B8202A1D2B5300DF1571 /* ForumPost.swift in Sources */,
@@ -662,7 +646,7 @@
 				CODE_SIGN_ENTITLEMENTS = "AI-therapist/AI-therapist.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "AI-therapist/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "AI-therapist/Preview\\ Content";
 				DEVELOPMENT_TEAM = PKBQP4R9X9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
@@ -696,7 +680,7 @@
 				CODE_SIGN_ENTITLEMENTS = "AI-therapist/AI-therapist.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "AI-therapist/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "AI-therapist/Preview\\ Content";
 				DEVELOPMENT_TEAM = PKBQP4R9X9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;

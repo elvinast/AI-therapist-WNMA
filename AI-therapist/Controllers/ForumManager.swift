@@ -1,6 +1,6 @@
 //
 //  ForumManager.swift
-//  Radiant
+//  AI-therapist
 //
 //  Created by Elvina Shamoi on 13/01/25.
 //

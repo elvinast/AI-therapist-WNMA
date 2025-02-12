@@ -1,6 +1,6 @@
 //
 //  ProfileSettingsView.swift
-//  Radiant
+//  AI-therapist
 //
 //  Created by Elvina Shamoi on 02/02/25.
 //
@@ -111,11 +111,11 @@ struct ProfileSettingsView: View {
                         }
                     }
                     
-                    Section(header: Text("Radiant")) {
+                    Section(header: Text("AI-therapist")) {
                         Link("Terms of Use (EULA)", destination: URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!)
                         
                         
-                        Link("Privacy Policy", destination: URL(string: "https://sites.google.com/view/radiant-privacy-policy/home")!)
+                        Link("Privacy Policy", destination: URL(string: "https://sites.google.com/view/AI-therapist-privacy-policy/home")!)
                     }
                     
                     Section(header: Text("Account Details")) {

@@ -1,6 +1,6 @@
 //
 //  ForumCreateCommentView.swift
-//  Radiant
+//  AI-therapist
 //
 //  Created by Viiktoria Voevodina on 14/01/25.
 //

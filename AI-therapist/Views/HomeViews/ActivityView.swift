@@ -1,6 +1,6 @@
 //
 //  ActivityView.swift
-//  Radiant
+//  AI-therapist
 //
 //  Created by Elvina Shamoi on 22/12/24.
 //

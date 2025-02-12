@@ -1,8 +1,8 @@
 //
 //  ForumPost.swift
-//  Radiant
+//  AI-therapist
 //
-//  Created by Ben Dreyer on 5/23/23.
+//  Created by Akniyet Turdybay on 26/01/25.
 //
 
 import Foundation

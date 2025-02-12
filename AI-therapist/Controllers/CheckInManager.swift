@@ -1,6 +1,6 @@
 //
 //  CheckInManager.swift
-//  Radiant
+//  AI-therapist
 //
 //  Created by Viiktoria Voevodina on 17/01/25.
 //

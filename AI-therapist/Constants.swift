@@ -1,15 +1,15 @@
 //
 //  Constants.swift
-//  Radiant
+//  AI-therapist
 //
-//  Created by Ben Dreyer on 5/2/23.
+//  Created by Akniyet Turdybay on 4/02/25.
 //
 
 import Foundation
 
 
 struct Constants {
-    static let appName = "Radiant"
+    static let appName = "AI-therapist"
     
     struct FStore {
         static let usersCollectionName = "users"
@@ -48,8 +48,8 @@ struct Constants {
     }
     
     struct AppleIDs {
-        static let appleSignInServiceID = "com.bendreyer.radiant-applesigninid"
-        static let appleSignInPrivateKeyName = "RadiantAppleSignInKey"
+        static let appleSignInServiceID = "com.bendreyer.AI-therapist-applesigninid"
+        static let appleSignInPrivateKeyName = "AI-therapistAppleSignInKey"
         static let appleSignInPrivateKeyID = "J4A348M8W5"
     }
     

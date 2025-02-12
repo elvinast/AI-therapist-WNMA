@@ -1,6 +1,6 @@
 //
 //  ProfileMainView.swift
-//  Radiant
+//  AI-therapist
 //
 //  Created by Elvina Shamoi on 02/02/25.
 //
@@ -335,7 +335,7 @@ struct UpgradeToPremiumPopup: View {
                         Text("- Unlimited access to the community form")
                             .foregroundColor(.black)
                             .font(.system(size: 14, design: .serif))
-                        Text("- Unlimited access to Radiant Chat Bot")
+                        Text("- Unlimited access to AI-therapist Chat Bot")
                             .foregroundColor(.black)
                             .font(.system(size: 14, design: .serif))
                         Text("- Full access to education pieces and activities")

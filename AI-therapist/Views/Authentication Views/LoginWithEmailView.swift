@@ -1,8 +1,8 @@
 //
 //  LoginView.swift
-//  Radiant
+//  AI-therapist
 //
-//  Created by Ben Dreyer on 5/2/23.
+//  Created by Akniyet Turdybay on 5/01/25.
 //
 
 import SwiftUI

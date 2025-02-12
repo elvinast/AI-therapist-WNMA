@@ -1,6 +1,6 @@
 //
 //  ImpulsivityView.swift
-//  Radiant
+//  AI-therapist
 //
 //  Created by Viiktoria Voevodina on 07/02/25.
 //

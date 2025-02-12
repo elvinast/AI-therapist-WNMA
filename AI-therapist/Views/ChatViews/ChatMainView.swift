@@ -1,6 +1,6 @@
 //
 //  ChatMainView.swift
-//  Radiant
+//  AI-therapist
 //
 //  Created by Elvina Shamoi on 11/01/25.
 //
@@ -38,7 +38,7 @@ struct ChatMainView: View {
             VStack {
                 
                 HStack {
-//                    Image("RadiantBotPic")
+//                    Image("AI-therapistBotPic")
 //                        .resizable()
 //                        .frame(width: 100, height: 100)
 //
@@ -317,7 +317,7 @@ struct MessageFromBot : View {
     var body: some View {
         
 //        HStack {
-//            Image("RadiantBotPic")
+//            Image("AI-therapistBotPic")
 //                .resizable()
 //                .frame(width: 40, height: 40)
 //                .clipShape(Circle())

@@ -1,8 +1,8 @@
 //
 //  Loader.swift
-//  Radiant
+//  AI-therapist
 //
-//  Created by Ben Dreyer on 8/2/23.
+//  Created by Akniyet Turdybay on 18/01/25.
 //
 
 import Foundation
@@ -17,7 +17,6 @@ final class Loader : ObservableObject {
     }
 
     init(_ id: String){
-        // the path to the image
         let url = "profile_pictures/\(id)"
         let storage = Storage.storage()
         let ref = storage.reference().child(url)
@@ -28,10 +27,6 @@ final class Loader : ObservableObject {
                 print("Image successfully found")
                 self.data = data
             }
-
-//            DispatchQueue.main.async {
-//
-//            }
         }
     }
 }

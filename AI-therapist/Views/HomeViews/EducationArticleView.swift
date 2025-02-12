@@ -1,6 +1,6 @@
 //
 //  EducationArticleView.swift
-//  Radiant
+//  AI-therapist
 //
 //  Created by Elvina Shamoi on 09/01/25.
 //

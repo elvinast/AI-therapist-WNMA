@@ -1,6 +1,6 @@
 //
 //  CheckInView.swift
-//  Radiant
+//  AI-therapist
 //
 //  Created by Elvina Shamoi on 24/12/24.
 //

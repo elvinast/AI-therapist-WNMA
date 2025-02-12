@@ -1,8 +1,8 @@
 //
 //  MapManager.swift
-//  Radiant
+//  AI-therapist
 //
-//  Created by Ben Dreyer on 8/6/23.
+//  Created by Akniyet Turdybay on 03/01/25.
 //
 
 import Foundation
@@ -73,9 +73,7 @@ class MapManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("error: \(error.localizedDescription)")
     }
-    
 }
-
 
 struct Location: Identifiable {
     let id = UUID()

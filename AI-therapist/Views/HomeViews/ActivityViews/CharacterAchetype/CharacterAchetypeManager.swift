@@ -1,8 +1,8 @@
 //
 //  CharacterArchetypeManager.swift
-//  Radiant
+//  AI-therapist
 //
-//  Created by Ben Dreyer on 7/30/23.
+//  Created by Akniyet Turdybay on 29/01/25.
 //
 
 import Foundation

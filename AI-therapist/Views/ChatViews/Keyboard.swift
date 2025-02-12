@@ -1,6 +1,6 @@
 //
 //  Keyboard.swift
-//  Radiant
+//  AI-therapist
 //
 //  Created by Elvina Shamoi on 20/12/24.
 //

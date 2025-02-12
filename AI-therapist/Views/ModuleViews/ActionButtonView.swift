@@ -1,8 +1,8 @@
 //
 //  ActionButtonView.swift
-//  Radiant
+//  AI-therapist
 //
-//  Created by Ben Dreyer on 5/3/23.
+//  Created by Akniyet Turdybay on 16/12/24.
 //
 
 import SwiftUI
@@ -27,8 +27,6 @@ struct ActionButtonView: View {
                     .padding()
                 
             }.frame(width: 350)
-//                .cornerRadius(50)
-//                .background(Color.white)
                 .overlay(
                     RoundedRectangle(cornerRadius: 50)
                         .stroke(Color.white, lineWidth: 2))

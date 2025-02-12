@@ -1,17 +1,13 @@
 //
 //  Message.swift
-//  Radiant
+//  AI-therapist
 //
-//  Created by Ben Dreyer on 6/1/23.
+//  Created by Akniyet Turdybay on 03/02/25.
 //
 
 import Foundation
 
 struct Message: Codable, Identifiable {
-    // Firebase will assign a docID automatically
-//    @DocumentID var id: String?
-    // this ID is necessary for swift to display messages in a list in the UI.
-    // At read time, assign the firebase @docID to this var, don't set the ID when writing to database
     var id: String?
     // The user that this message belongs to
     var userID: String?

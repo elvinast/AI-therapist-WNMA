@@ -1,8 +1,8 @@
 //
 //  CheckIn.swift
-//  Radiant
+//  AI-therapist
 //
-//  Created by Ben Dreyer on 8/11/23.
+//  Created by Akniyet Turdybay on 06/02/25.
 //
 
 import Foundation

@@ -1,6 +1,6 @@
 //
 //  ThinkingErrorsView.swift
-//  Radiant
+//  AI-therapist
 //
 //  Created by Viiktoria Voevodina on 20/01/25.
 //

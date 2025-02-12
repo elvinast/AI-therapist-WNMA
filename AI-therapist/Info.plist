@@ -20,8 +20,8 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Radiant needs your location data</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.bendreyer.Radiant</string>
+	<string>com.bendreyer.AI-therapist</string>
 	<key>CFBundleExecutable</key>
-	<string>Radiant</string>
+	<string>AI-therapist</string>
 </dict>
 </plist>

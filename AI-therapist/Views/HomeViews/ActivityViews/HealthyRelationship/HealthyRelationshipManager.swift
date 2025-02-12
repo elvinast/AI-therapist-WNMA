@@ -1,8 +1,8 @@
 //
 //  HealthyRelationshipManager.swift
-//  Radiant
+//  AI-therapist
 //
-//  Created by Ben Dreyer on 8/4/23.
+//  Created by Akniyet Turdybay on 29/12/24.
 //
 
 import Foundation

@@ -1,8 +1,8 @@
 //
 //  CharacterAchetypeView.swift
-//  Radiant
+//  AI-therapist
 //
-//  Created by Ben Dreyer on 7/30/23.
+//  Created by Akniyet Turdybay on 13/01/25.
 //
 
 // testing the commit
