@@ -1,0 +1,822 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A195C8F2A229D4A00749695 /* ForumSinglePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A195C8E2A229D4A00749695 /* ForumSinglePostView.swift */; };
+		1A1D6DF52A7DBED700A23807 /* HealthyRelationshipActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1D6DF42A7DBED700A23807 /* HealthyRelationshipActivityView.swift */; };
+		1A1D6DF72A7DD44B00A23807 /* HealthyRelationshipManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1D6DF62A7DD44B00A23807 /* HealthyRelationshipManager.swift */; };
+		1A1D6DF92A7EF38200A23807 /* JournalingPromptsActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1D6DF82A7EF38200A23807 /* JournalingPromptsActivityView.swift */; };
+		1A1D6DFC2A7EFD4000A23807 /* ThinkingErrorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1D6DFB2A7EFD4000A23807 /* ThinkingErrorsView.swift */; };
+		1A1D6DFE2A805DE500A23807 /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1D6DFD2A805DE500A23807 /* MapManager.swift */; };
+		1A1D90A52A9AF9B8006E1062 /* ImpulsivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1D90A42A9AF9B8006E1062 /* ImpulsivityView.swift */; };
+		1A4A21D02A323D0C007C6792 /* ForumCreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A21CF2A323D0C007C6792 /* ForumCreatePostView.swift */; };
+		1A53FEA42A5B5AD000F0AFB0 /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A53FEA32A5B5AD000F0AFB0 /* CheckInView.swift */; };
+		1A56F3D62A05C3FF0057A6D6 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56F3D52A05C3FF0057A6D6 /* UserDefaults.swift */; };
+		1A56F3D92A06CFD50057A6D6 /* BottomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56F3D82A06CFD50057A6D6 /* BottomNavBar.swift */; };
+		1A56F3DC2A06D5C80057A6D6 /* ProfileMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56F3DB2A06D5C80057A6D6 /* ProfileMainView.swift */; };
+		1A56F3DF2A06DF310057A6D6 /* HomeMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56F3DE2A06DF310057A6D6 /* HomeMainView.swift */; };
+		1A56F3E22A06DF7B0057A6D6 /* ForumMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56F3E12A06DF7B0057A6D6 /* ForumMainView.swift */; };
+		1A56F3E42A08316A0057A6D6 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56F3E32A08316A0057A6D6 /* UserProfile.swift */; };
+		1A57BB6D2A65AEE50016901D /* CirclularSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A57BB6C2A65AEE50016901D /* CirclularSlider.swift */; };
+		1A57BB6F2A66378B0016901D /* CheckInManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A57BB6E2A66378B0016901D /* CheckInManager.swift */; };
+		1A60B1802ACA22BC0004AA93 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 1A60B17F2ACA22BC0004AA93 /* FirebaseAnalytics */; };
+		1A60B1822ACA23460004AA93 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1A60B1812ACA23460004AA93 /* FirebaseAnalyticsSwift */; };
+		1A60B1922ADCC0730004AA93 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A60B1912ADCC0730004AA93 /* StoreKit.framework */; };
+		1A60B19C2ADCE27F0004AA93 /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A60B19B2ADCE27F0004AA93 /* PurchaseManager.swift */; };
+		1A60B19E2AE5C64A0004AA93 /* EntitlementManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A60B19D2AE5C64A0004AA93 /* EntitlementManager.swift */; };
+		1A6585E02A2669B800B4DE6D /* ForumCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6585DF2A2669B800B4DE6D /* ForumCategoriesView.swift */; };
+		1A6585E42A29091E00B4DE6D /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6585E32A29091E00B4DE6D /* Message.swift */; };
+		1A6585E62A29104B00B4DE6D /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6585E52A29104B00B4DE6D /* ChatManager.swift */; };
+		1A667F892A83379000186F05 /* StagesOfGriefView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A667F882A83379000186F05 /* StagesOfGriefView.swift */; };
+		1A667F8B2A8721EA00186F05 /* CheckIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A667F8A2A8721EA00186F05 /* CheckIn.swift */; };
+		1A667F8E2A8813BB00186F05 /* HistoryMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A667F8D2A8813BB00186F05 /* HistoryMainView.swift */; };
+		1A667F902A88185F00186F05 /* HistoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A667F8F2A88185F00186F05 /* HistoryManager.swift */; };
+		1A6C47972A5A1F85006DB377 /* HomeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6C47962A5A1F85006DB377 /* HomeManager.swift */; };
+		1A7621AE2A48E1E60078D480 /* SideBarStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7621AD2A48E1E60078D480 /* SideBarStack.swift */; };
+		1A8C6C182A0202F200676E5F /* LoginWithEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8C6C172A0202F200676E5F /* LoginWithEmailView.swift */; };
+		1A8C6C1A2A02122800676E5F /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8C6C192A02122800676E5F /* RegisterView.swift */; };
+		1A8C6C1C2A02E15E00676E5F /* RegisterWithEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8C6C1B2A02E15E00676E5F /* RegisterWithEmailView.swift */; };
+		1A8C6C1F2A02E2A800676E5F /* ActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8C6C1E2A02E2A800676E5F /* ActionButtonView.swift */; };
+		1A8CCE092A7837D2001D5D55 /* CharacterAchetypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8CCE082A7837D2001D5D55 /* CharacterAchetypeView.swift */; };
+		1A8CCE0B2A7837E1001D5D55 /* CharacterAchetypeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8CCE0A2A7837E1001D5D55 /* CharacterAchetypeManager.swift */; };
+		1A8CCE0D2A7AD482001D5D55 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1A8CCE0C2A7AD482001D5D55 /* FirebaseStorage */; };
+		1A8CCE112A7B4767001D5D55 /* FirebaseImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8CCE102A7B4767001D5D55 /* FirebaseImage.swift */; };
+		1A8CCE132A7B4901001D5D55 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8CCE122A7B4901001D5D55 /* Loader.swift */; };
+		1A92F9B42A0411BE000C2AE3 /* AuthStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A92F9B32A0411BE000C2AE3 /* AuthStatusManager.swift */; };
+		1A98C4532A083AC800BB3203 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1A98C4522A083AC800BB3203 /* FirebaseFirestoreSwift */; };
+		1A98C45F2A0ABE9E00BB3203 /* ProfileStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A98C45E2A0ABE9E00BB3203 /* ProfileStatusManager.swift */; };
+		1A98C4612A0AC75700BB3203 /* ProfileSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A98C4602A0AC75600BB3203 /* ProfileSettingsView.swift */; };
+		1AAF79FD2A6E0D85005AA26B /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAF79FC2A6E0D85005AA26B /* ActivityView.swift */; };
+		1AAF79FF2A6E0E12005AA26B /* EducationArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAF79FE2A6E0E12005AA26B /* EducationArticleView.swift */; };
+		1AAF7A012A748C5F005AA26B /* BetaTestValidationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAF7A002A748C5F005AA26B /* BetaTestValidationView.swift */; };
+		1AAF7A032A75B06E005AA26B /* WelcomeSurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAF7A022A75B06E005AA26B /* WelcomeSurveyView.swift */; };
+		1AB0B81E2A1BD7C100DF1571 /* ForumDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0B81D2A1BD7C100DF1571 /* ForumDetailedView.swift */; };
+		1AB0B8202A1D2B5300DF1571 /* ForumPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0B81F2A1D2B5300DF1571 /* ForumPost.swift */; };
+		1AB0B8222A1D2C2B00DF1571 /* ForumPostComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0B8212A1D2C2B00DF1571 /* ForumPostComment.swift */; };
+		1AB0B8242A1D2CE600DF1571 /* ForumManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB0B8232A1D2CE600DF1571 /* ForumManager.swift */; };
+		1AC990472A01703B00851A14 /* AI-therapistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC990462A01703B00851A14 /* AI-therapistApp.swift */; };
+		1AC990492A01703B00851A14 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC990482A01703B00851A14 /* ContentView.swift */; };
+		1AC9904B2A01703C00851A14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AC9904A2A01703C00851A14 /* Assets.xcassets */; };
+		1AC9904E2A01703C00851A14 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AC9904D2A01703C00851A14 /* Preview Assets.xcassets */; };
+		1AC990582A01737400851A14 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 1AC990572A01737400851A14 /* FirebaseAuth */; };
+		1AC9905A2A01737400851A14 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 1AC990592A01737400851A14 /* FirebaseFirestore */; };
+		1AC9905F2A01794F00851A14 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC9905E2A01794F00851A14 /* WelcomeView.swift */; };
+		1AC990692A018B1000851A14 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC990682A018B1000851A14 /* Constants.swift */; };
+		1AE12E7E2A40D5450020F7E3 /* ChatMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE12E7D2A40D5450020F7E3 /* ChatMainView.swift */; };
+		1AF412032AA1603C003EFF16 /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 1AF412022AA1603C003EFF16 /* OpenAI */; };
+		1AF412052AAE6EE0003EFF16 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF412042AAE6EE0003EFF16 /* Keyboard.swift */; };
+		1AF412092AB14C96003EFF16 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AF412082AB14C96003EFF16 /* Launch Screen.storyboard */; };
+		1AF5F8DD2A365D880044571D /* ForumCreateCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF5F8DC2A365D880044571D /* ForumCreateCommentView.swift */; };
+		E59D0E162D300F83005842AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E59D0E152D300F83005842AE /* GoogleService-Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1A195C8E2A229D4A00749695 /* ForumSinglePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumSinglePostView.swift; sourceTree = "<group>"; };
+		1A1D6DF42A7DBED700A23807 /* HealthyRelationshipActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthyRelationshipActivityView.swift; sourceTree = "<group>"; };
+		1A1D6DF62A7DD44B00A23807 /* HealthyRelationshipManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthyRelationshipManager.swift; sourceTree = "<group>"; };
+		1A1D6DF82A7EF38200A23807 /* JournalingPromptsActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalingPromptsActivityView.swift; sourceTree = "<group>"; };
+		1A1D6DFB2A7EFD4000A23807 /* ThinkingErrorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinkingErrorsView.swift; sourceTree = "<group>"; };
+		1A1D6DFD2A805DE500A23807 /* MapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
+		1A1D90A42A9AF9B8006E1062 /* ImpulsivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpulsivityView.swift; sourceTree = "<group>"; };
+		1A4A21CF2A323D0C007C6792 /* ForumCreatePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumCreatePostView.swift; sourceTree = "<group>"; };
+		1A53FEA32A5B5AD000F0AFB0 /* CheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInView.swift; sourceTree = "<group>"; };
+		1A56F3D52A05C3FF0057A6D6 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		1A56F3D82A06CFD50057A6D6 /* BottomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavBar.swift; sourceTree = "<group>"; };
+		1A56F3DB2A06D5C80057A6D6 /* ProfileMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainView.swift; sourceTree = "<group>"; };
+		1A56F3DE2A06DF310057A6D6 /* HomeMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainView.swift; sourceTree = "<group>"; };
+		1A56F3E12A06DF7B0057A6D6 /* ForumMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumMainView.swift; sourceTree = "<group>"; };
+		1A56F3E32A08316A0057A6D6 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		1A57BB6C2A65AEE50016901D /* CirclularSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CirclularSlider.swift; sourceTree = "<group>"; };
+		1A57BB6E2A66378B0016901D /* CheckInManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInManager.swift; sourceTree = "<group>"; };
+		1A60B1912ADCC0730004AA93 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		1A60B19B2ADCE27F0004AA93 /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
+		1A60B19D2AE5C64A0004AA93 /* EntitlementManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntitlementManager.swift; sourceTree = "<group>"; };
+		1A6585DF2A2669B800B4DE6D /* ForumCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumCategoriesView.swift; sourceTree = "<group>"; };
+		1A6585E32A29091E00B4DE6D /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		1A6585E52A29104B00B4DE6D /* ChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
+		1A667F882A83379000186F05 /* StagesOfGriefView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StagesOfGriefView.swift; sourceTree = "<group>"; };
+		1A667F8A2A8721EA00186F05 /* CheckIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckIn.swift; sourceTree = "<group>"; };
+		1A667F8D2A8813BB00186F05 /* HistoryMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryMainView.swift; sourceTree = "<group>"; };
+		1A667F8F2A88185F00186F05 /* HistoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryManager.swift; sourceTree = "<group>"; };
+		1A6C47962A5A1F85006DB377 /* HomeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeManager.swift; sourceTree = "<group>"; };
+		1A7621AD2A48E1E60078D480 /* SideBarStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarStack.swift; sourceTree = "<group>"; };
+		1A8C6C172A0202F200676E5F /* LoginWithEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithEmailView.swift; sourceTree = "<group>"; };
+		1A8C6C192A02122800676E5F /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		1A8C6C1B2A02E15E00676E5F /* RegisterWithEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterWithEmailView.swift; sourceTree = "<group>"; };
+		1A8C6C1E2A02E2A800676E5F /* ActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonView.swift; sourceTree = "<group>"; };
+		1A8CCE082A7837D2001D5D55 /* CharacterAchetypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAchetypeView.swift; sourceTree = "<group>"; };
+		1A8CCE0A2A7837E1001D5D55 /* CharacterAchetypeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAchetypeManager.swift; sourceTree = "<group>"; };
+		1A8CCE102A7B4767001D5D55 /* FirebaseImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseImage.swift; sourceTree = "<group>"; };
+		1A8CCE122A7B4901001D5D55 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		1A92F9B32A0411BE000C2AE3 /* AuthStatusManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStatusManager.swift; sourceTree = "<group>"; };
+		1A92F9B52A056A3A000C2AE3 /* AI-therapist.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "AI-therapist.entitlements"; sourceTree = "<group>"; };
+		1A92F9B82A05732D000C2AE3 /* AuthStatusManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStatusManagerTests.swift; sourceTree = "<group>"; };
+		1A92F9BB2A0573D3000C2AE3 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		1A92F9E32A0578FE000C2AE3 /* UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTests.swift; sourceTree = "<group>"; };
+		1A98C45E2A0ABE9E00BB3203 /* ProfileStatusManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStatusManager.swift; sourceTree = "<group>"; };
+		1A98C4602A0AC75600BB3203 /* ProfileSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsView.swift; sourceTree = "<group>"; };
+		1AAF79FC2A6E0D85005AA26B /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
+		1AAF79FE2A6E0E12005AA26B /* EducationArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationArticleView.swift; sourceTree = "<group>"; };
+		1AAF7A002A748C5F005AA26B /* BetaTestValidationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetaTestValidationView.swift; sourceTree = "<group>"; };
+		1AAF7A022A75B06E005AA26B /* WelcomeSurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeSurveyView.swift; sourceTree = "<group>"; };
+		1AB0B81D2A1BD7C100DF1571 /* ForumDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumDetailedView.swift; sourceTree = "<group>"; };
+		1AB0B81F2A1D2B5300DF1571 /* ForumPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumPost.swift; sourceTree = "<group>"; };
+		1AB0B8212A1D2C2B00DF1571 /* ForumPostComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumPostComment.swift; sourceTree = "<group>"; };
+		1AB0B8232A1D2CE600DF1571 /* ForumManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumManager.swift; sourceTree = "<group>"; };
+		1AC990432A01703B00851A14 /* AI-therapist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AI-therapist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AC990462A01703B00851A14 /* AI-therapistApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AI-therapistApp.swift"; sourceTree = "<group>"; };
+		1AC990482A01703B00851A14 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1AC9904A2A01703C00851A14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1AC9904D2A01703C00851A14 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1AC9905E2A01794F00851A14 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		1AC990682A018B1000851A14 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1AE12E7D2A40D5450020F7E3 /* ChatMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMainView.swift; sourceTree = "<group>"; };
+		1AF412042AAE6EE0003EFF16 /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
+		1AF412082AB14C96003EFF16 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		1AF5F8DC2A365D880044571D /* ForumCreateCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumCreateCommentView.swift; sourceTree = "<group>"; };
+		3C2817742D30372F00FDC203 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E59D0E152D300F83005842AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1AC990402A01703B00851A14 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A60B1922ADCC0730004AA93 /* StoreKit.framework in Frameworks */,
+				1AF412032AA1603C003EFF16 /* OpenAI in Frameworks */,
+				1AC990582A01737400851A14 /* FirebaseAuth in Frameworks */,
+				1A60B1802ACA22BC0004AA93 /* FirebaseAnalytics in Frameworks */,
+				1A8CCE0D2A7AD482001D5D55 /* FirebaseStorage in Frameworks */,
+				1A60B1822ACA23460004AA93 /* FirebaseAnalyticsSwift in Frameworks */,
+				1AC9905A2A01737400851A14 /* FirebaseFirestore in Frameworks */,
+				1A98C4532A083AC800BB3203 /* FirebaseFirestoreSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A1D6DF32A7DBEC400A23807 /* HealthyRelationship */ = {
+			isa = PBXGroup;
+			children = (
+				1A1D6DF42A7DBED700A23807 /* HealthyRelationshipActivityView.swift */,
+				1A1D6DF62A7DD44B00A23807 /* HealthyRelationshipManager.swift */,
+			);
+			path = HealthyRelationship;
+			sourceTree = "<group>";
+		};
+		1A1D6DFA2A7EFD2A00A23807 /* EducationViews */ = {
+			isa = PBXGroup;
+			children = (
+				1A1D6DFB2A7EFD4000A23807 /* ThinkingErrorsView.swift */,
+				1A667F882A83379000186F05 /* StagesOfGriefView.swift */,
+				1A1D90A42A9AF9B8006E1062 /* ImpulsivityView.swift */,
+			);
+			path = EducationViews;
+			sourceTree = "<group>";
+		};
+		1A56F3D72A06CFB60057A6D6 /* NavigationViews */ = {
+			isa = PBXGroup;
+			children = (
+				1A56F3D82A06CFD50057A6D6 /* BottomNavBar.swift */,
+			);
+			path = NavigationViews;
+			sourceTree = "<group>";
+		};
+		1A56F3DA2A06D5B20057A6D6 /* ProfileViews */ = {
+			isa = PBXGroup;
+			children = (
+				1A56F3DB2A06D5C80057A6D6 /* ProfileMainView.swift */,
+				1A98C4602A0AC75600BB3203 /* ProfileSettingsView.swift */,
+			);
+			path = ProfileViews;
+			sourceTree = "<group>";
+		};
+		1A56F3DD2A06DF230057A6D6 /* HomeViews */ = {
+			isa = PBXGroup;
+			children = (
+				1A1D6DFA2A7EFD2A00A23807 /* EducationViews */,
+				1A8CCE042A78377E001D5D55 /* ActivityViews */,
+				1A56F3DE2A06DF310057A6D6 /* HomeMainView.swift */,
+				1A53FEA32A5B5AD000F0AFB0 /* CheckInView.swift */,
+				1AAF79FC2A6E0D85005AA26B /* ActivityView.swift */,
+				1AAF79FE2A6E0E12005AA26B /* EducationArticleView.swift */,
+				1AAF7A022A75B06E005AA26B /* WelcomeSurveyView.swift */,
+			);
+			path = HomeViews;
+			sourceTree = "<group>";
+		};
+		1A56F3E02A06DF610057A6D6 /* ForumViews */ = {
+			isa = PBXGroup;
+			children = (
+				1A56F3E12A06DF7B0057A6D6 /* ForumMainView.swift */,
+				1AB0B81D2A1BD7C100DF1571 /* ForumDetailedView.swift */,
+				1A195C8E2A229D4A00749695 /* ForumSinglePostView.swift */,
+				1A6585DF2A2669B800B4DE6D /* ForumCategoriesView.swift */,
+				1A4A21CF2A323D0C007C6792 /* ForumCreatePostView.swift */,
+				1AF5F8DC2A365D880044571D /* ForumCreateCommentView.swift */,
+				1A7621AD2A48E1E60078D480 /* SideBarStack.swift */,
+			);
+			path = ForumViews;
+			sourceTree = "<group>";
+		};
+		1A667F8C2A8813AB00186F05 /* HistoryViews */ = {
+			isa = PBXGroup;
+			children = (
+				1A667F8D2A8813BB00186F05 /* HistoryMainView.swift */,
+			);
+			path = HistoryViews;
+			sourceTree = "<group>";
+		};
+		1A8C6C1D2A02E29800676E5F /* ModuleViews */ = {
+			isa = PBXGroup;
+			children = (
+				1A8C6C1E2A02E2A800676E5F /* ActionButtonView.swift */,
+				1A57BB6C2A65AEE50016901D /* CirclularSlider.swift */,
+				1A8CCE102A7B4767001D5D55 /* FirebaseImage.swift */,
+				1A8CCE122A7B4901001D5D55 /* Loader.swift */,
+			);
+			path = ModuleViews;
+			sourceTree = "<group>";
+		};
+		1A8CCE042A78377E001D5D55 /* ActivityViews */ = {
+			isa = PBXGroup;
+			children = (
+				1A1D6DF32A7DBEC400A23807 /* HealthyRelationship */,
+				1A8CCE052A78379E001D5D55 /* CharacterAchetype */,
+				1A1D6DF82A7EF38200A23807 /* JournalingPromptsActivityView.swift */,
+			);
+			path = ActivityViews;
+			sourceTree = "<group>";
+		};
+		1A8CCE052A78379E001D5D55 /* CharacterAchetype */ = {
+			isa = PBXGroup;
+			children = (
+				1A8CCE082A7837D2001D5D55 /* CharacterAchetypeView.swift */,
+				1A8CCE0A2A7837E1001D5D55 /* CharacterAchetypeManager.swift */,
+			);
+			path = CharacterAchetype;
+			sourceTree = "<group>";
+		};
+		1A92F9BA2A0573D3000C2AE3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1A60B1912ADCC0730004AA93 /* StoreKit.framework */,
+				1A92F9BB2A0573D3000C2AE3 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1A92F9E22A0578FE000C2AE3 /* UnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				1A92F9B82A05732D000C2AE3 /* AuthStatusManagerTests.swift */,
+				1A92F9E32A0578FE000C2AE3 /* UnitTests.swift */,
+			);
+			path = UnitTests;
+			sourceTree = "<group>";
+		};
+		1AC9903A2A01703B00851A14 = {
+			isa = PBXGroup;
+			children = (
+				1AC990452A01703B00851A14 /* AI-therapist */,
+				1A92F9E22A0578FE000C2AE3 /* UnitTests */,
+				1AC990442A01703B00851A14 /* Products */,
+				1A92F9BA2A0573D3000C2AE3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1AC990442A01703B00851A14 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1AC990432A01703B00851A14 /* AI-therapist.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1AC990452A01703B00851A14 /* AI-therapist */ = {
+			isa = PBXGroup;
+			children = (
+				E59D0E152D300F83005842AE /* GoogleService-Info.plist */,
+				1A92F9B52A056A3A000C2AE3 /* AI-therapist.entitlements */,
+				1A1D6DFD2A805DE500A23807 /* MapManager.swift */,
+				1AC9905D2A01776D00851A14 /* Controllers */,
+				1AC9905C2A01776500851A14 /* Views */,
+				1AC9905B2A01770000851A14 /* Models */,
+				1AC990462A01703B00851A14 /* AI-therapistApp.swift */,
+				1AC9904A2A01703C00851A14 /* Assets.xcassets */,
+				1AC9904C2A01703C00851A14 /* Preview Content */,
+				1AC990682A018B1000851A14 /* Constants.swift */,
+				1A56F3D52A05C3FF0057A6D6 /* UserDefaults.swift */,
+				1AF412082AB14C96003EFF16 /* Launch Screen.storyboard */,
+				3C2817742D30372F00FDC203 /* Info.plist */,
+			);
+			path = "AI-therapist";
+			sourceTree = "<group>";
+		};
+		1AC9904C2A01703C00851A14 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1AC9904D2A01703C00851A14 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1AC9905B2A01770000851A14 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1A56F3E32A08316A0057A6D6 /* UserProfile.swift */,
+				1AB0B81F2A1D2B5300DF1571 /* ForumPost.swift */,
+				1AB0B8212A1D2C2B00DF1571 /* ForumPostComment.swift */,
+				1A6585E32A29091E00B4DE6D /* Message.swift */,
+				1A667F8A2A8721EA00186F05 /* CheckIn.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1AC9905C2A01776500851A14 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1A667F8C2A8813AB00186F05 /* HistoryViews */,
+				1AE12E7C2A40D52D0020F7E3 /* ChatViews */,
+				1A56F3E02A06DF610057A6D6 /* ForumViews */,
+				1A56F3DD2A06DF230057A6D6 /* HomeViews */,
+				1A56F3DA2A06D5B20057A6D6 /* ProfileViews */,
+				1A56F3D72A06CFB60057A6D6 /* NavigationViews */,
+				1A8C6C1D2A02E29800676E5F /* ModuleViews */,
+				1AC990672A01881600851A14 /* Authentication Views */,
+				1AC990482A01703B00851A14 /* ContentView.swift */,
+				1AC9905E2A01794F00851A14 /* WelcomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1AC9905D2A01776D00851A14 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1A92F9B32A0411BE000C2AE3 /* AuthStatusManager.swift */,
+				1A98C45E2A0ABE9E00BB3203 /* ProfileStatusManager.swift */,
+				1AB0B8232A1D2CE600DF1571 /* ForumManager.swift */,
+				1A6585E52A29104B00B4DE6D /* ChatManager.swift */,
+				1A6C47962A5A1F85006DB377 /* HomeManager.swift */,
+				1A57BB6E2A66378B0016901D /* CheckInManager.swift */,
+				1A667F8F2A88185F00186F05 /* HistoryManager.swift */,
+				1A60B19B2ADCE27F0004AA93 /* PurchaseManager.swift */,
+				1A60B19D2AE5C64A0004AA93 /* EntitlementManager.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		1AC990672A01881600851A14 /* Authentication Views */ = {
+			isa = PBXGroup;
+			children = (
+				1A8C6C172A0202F200676E5F /* LoginWithEmailView.swift */,
+				1A8C6C192A02122800676E5F /* RegisterView.swift */,
+				1A8C6C1B2A02E15E00676E5F /* RegisterWithEmailView.swift */,
+				1AAF7A002A748C5F005AA26B /* BetaTestValidationView.swift */,
+			);
+			path = "Authentication Views";
+			sourceTree = "<group>";
+		};
+		1AE12E7C2A40D52D0020F7E3 /* ChatViews */ = {
+			isa = PBXGroup;
+			children = (
+				1AE12E7D2A40D5450020F7E3 /* ChatMainView.swift */,
+				1AF412042AAE6EE0003EFF16 /* Keyboard.swift */,
+			);
+			path = ChatViews;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1AC990422A01703B00851A14 /* AI-therapist */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1AC990512A01703C00851A14 /* Build configuration list for PBXNativeTarget "AI-therapist" */;
+			buildPhases = (
+				1AC9903F2A01703B00851A14 /* Sources */,
+				1AC990402A01703B00851A14 /* Frameworks */,
+				1AC990412A01703B00851A14 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AI-therapist";
+			packageProductDependencies = (
+				1AC990572A01737400851A14 /* FirebaseAuth */,
+				1AC990592A01737400851A14 /* FirebaseFirestore */,
+				1A98C4522A083AC800BB3203 /* FirebaseFirestoreSwift */,
+				1A8CCE0C2A7AD482001D5D55 /* FirebaseStorage */,
+				1AF412022AA1603C003EFF16 /* OpenAI */,
+				1A60B17F2ACA22BC0004AA93 /* FirebaseAnalytics */,
+				1A60B1812ACA23460004AA93 /* FirebaseAnalyticsSwift */,
+			);
+			productName = Radiant;
+			productReference = 1AC990432A01703B00851A14 /* AI-therapist.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1AC9903B2A01703B00851A14 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					1AC990422A01703B00851A14 = {
+						CreatedOnToolsVersion = 14.3;
+					};
+				};
+			};
+			buildConfigurationList = 1AC9903E2A01703B00851A14 /* Build configuration list for PBXProject "AI-therapist" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1AC9903A2A01703B00851A14;
+			packageReferences = (
+				1AC990562A01737400851A14 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				1AFB7B9C2A035162009467A3 /* XCRemoteSwiftPackageReference "swift-algorithms" */,
+				1AF412012AA1603C003EFF16 /* XCRemoteSwiftPackageReference "OpenAI" */,
+				1A60B1832ADC90D00004AA93 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+			);
+			productRefGroup = 1AC990442A01703B00851A14 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1AC990422A01703B00851A14 /* AI-therapist */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1AC990412A01703B00851A14 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AF412092AB14C96003EFF16 /* Launch Screen.storyboard in Resources */,
+				1AC9904E2A01703C00851A14 /* Preview Assets.xcassets in Resources */,
+				1AC9904B2A01703C00851A14 /* Assets.xcassets in Resources */,
+				E59D0E162D300F83005842AE /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1AC9903F2A01703B00851A14 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A8C6C182A0202F200676E5F /* LoginWithEmailView.swift in Sources */,
+				1A1D90A52A9AF9B8006E1062 /* ImpulsivityView.swift in Sources */,
+				1A667F8B2A8721EA00186F05 /* CheckIn.swift in Sources */,
+				1AAF79FF2A6E0E12005AA26B /* EducationArticleView.swift in Sources */,
+				1AB0B8222A1D2C2B00DF1571 /* ForumPostComment.swift in Sources */,
+				1A1D6DFE2A805DE500A23807 /* MapManager.swift in Sources */,
+				1AAF7A012A748C5F005AA26B /* BetaTestValidationView.swift in Sources */,
+				1A195C8F2A229D4A00749695 /* ForumSinglePostView.swift in Sources */,
+				1A6585E62A29104B00B4DE6D /* ChatManager.swift in Sources */,
+				1AB0B8202A1D2B5300DF1571 /* ForumPost.swift in Sources */,
+				1A56F3E22A06DF7B0057A6D6 /* ForumMainView.swift in Sources */,
+				1A667F892A83379000186F05 /* StagesOfGriefView.swift in Sources */,
+				1A56F3E42A08316A0057A6D6 /* UserProfile.swift in Sources */,
+				1A1D6DFC2A7EFD4000A23807 /* ThinkingErrorsView.swift in Sources */,
+				1A1D6DF92A7EF38200A23807 /* JournalingPromptsActivityView.swift in Sources */,
+				1A6585E02A2669B800B4DE6D /* ForumCategoriesView.swift in Sources */,
+				1AF5F8DD2A365D880044571D /* ForumCreateCommentView.swift in Sources */,
+				1A56F3DF2A06DF310057A6D6 /* HomeMainView.swift in Sources */,
+				1A8C6C1C2A02E15E00676E5F /* RegisterWithEmailView.swift in Sources */,
+				1A6585E42A29091E00B4DE6D /* Message.swift in Sources */,
+				1AAF79FD2A6E0D85005AA26B /* ActivityView.swift in Sources */,
+				1A98C45F2A0ABE9E00BB3203 /* ProfileStatusManager.swift in Sources */,
+				1A53FEA42A5B5AD000F0AFB0 /* CheckInView.swift in Sources */,
+				1AB0B81E2A1BD7C100DF1571 /* ForumDetailedView.swift in Sources */,
+				1A8CCE0B2A7837E1001D5D55 /* CharacterAchetypeManager.swift in Sources */,
+				1A4A21D02A323D0C007C6792 /* ForumCreatePostView.swift in Sources */,
+				1AC990692A018B1000851A14 /* Constants.swift in Sources */,
+				1A1D6DF72A7DD44B00A23807 /* HealthyRelationshipManager.swift in Sources */,
+				1AC990492A01703B00851A14 /* ContentView.swift in Sources */,
+				1A7621AE2A48E1E60078D480 /* SideBarStack.swift in Sources */,
+				1A8C6C1A2A02122800676E5F /* RegisterView.swift in Sources */,
+				1AC9905F2A01794F00851A14 /* WelcomeView.swift in Sources */,
+				1A667F902A88185F00186F05 /* HistoryManager.swift in Sources */,
+				1A6C47972A5A1F85006DB377 /* HomeManager.swift in Sources */,
+				1A56F3D92A06CFD50057A6D6 /* BottomNavBar.swift in Sources */,
+				1A57BB6D2A65AEE50016901D /* CirclularSlider.swift in Sources */,
+				1AE12E7E2A40D5450020F7E3 /* ChatMainView.swift in Sources */,
+				1A57BB6F2A66378B0016901D /* CheckInManager.swift in Sources */,
+				1A60B19C2ADCE27F0004AA93 /* PurchaseManager.swift in Sources */,
+				1AB0B8242A1D2CE600DF1571 /* ForumManager.swift in Sources */,
+				1A56F3D62A05C3FF0057A6D6 /* UserDefaults.swift in Sources */,
+				1A8C6C1F2A02E2A800676E5F /* ActionButtonView.swift in Sources */,
+				1A56F3DC2A06D5C80057A6D6 /* ProfileMainView.swift in Sources */,
+				1A98C4612A0AC75700BB3203 /* ProfileSettingsView.swift in Sources */,
+				1A8CCE092A7837D2001D5D55 /* CharacterAchetypeView.swift in Sources */,
+				1AF412052AAE6EE0003EFF16 /* Keyboard.swift in Sources */,
+				1A667F8E2A8813BB00186F05 /* HistoryMainView.swift in Sources */,
+				1AC990472A01703B00851A14 /* AI-therapistApp.swift in Sources */,
+				1A92F9B42A0411BE000C2AE3 /* AuthStatusManager.swift in Sources */,
+				1A8CCE112A7B4767001D5D55 /* FirebaseImage.swift in Sources */,
+				1A1D6DF52A7DBED700A23807 /* HealthyRelationshipActivityView.swift in Sources */,
+				1AAF7A032A75B06E005AA26B /* WelcomeSurveyView.swift in Sources */,
+				1A8CCE132A7B4901001D5D55 /* Loader.swift in Sources */,
+				1A60B19E2AE5C64A0004AA93 /* EntitlementManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1AC9904F2A01703C00851A14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1AC990502A01703C00851A14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1AC990522A01703C00851A14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "AI-therapist/AI-therapist.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "AI-therapist/Preview Content\"";
+				DEVELOPMENT_TEAM = PKBQP4R9X9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "AI-therapist/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "AI-therapist needs your location data";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.2;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wnma.AI-therapist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		1AC990532A01703C00851A14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "AI-therapist/AI-therapist.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "AI-therapist/Preview Content\"";
+				DEVELOPMENT_TEAM = PKBQP4R9X9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "AI-therapist/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "AI-therapist needs your location data";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.2;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wnma.AI-therapist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1AC9903E2A01703B00851A14 /* Build configuration list for PBXProject "AI-therapist" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1AC9904F2A01703C00851A14 /* Debug */,
+				1AC990502A01703C00851A14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1AC990512A01703C00851A14 /* Build configuration list for PBXNativeTarget "AI-therapist" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1AC990522A01703C00851A14 /* Debug */,
+				1AC990532A01703C00851A14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1A60B1832ADC90D00004AA93 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+		1AC990562A01737400851A14 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+		1AF412012AA1603C003EFF16 /* XCRemoteSwiftPackageReference "OpenAI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MacPaw/OpenAI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.4;
+			};
+		};
+		1AFB7B9C2A035162009467A3 /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1A60B17F2ACA22BC0004AA93 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1AC990562A01737400851A14 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		1A60B1812ACA23460004AA93 /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1AC990562A01737400851A14 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		1A8CCE0C2A7AD482001D5D55 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1AC990562A01737400851A14 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		1A98C4522A083AC800BB3203 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1AC990562A01737400851A14 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		1AC990572A01737400851A14 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1AC990562A01737400851A14 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		1AC990592A01737400851A14 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1AC990562A01737400851A14 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		1AF412022AA1603C003EFF16 /* OpenAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1AF412012AA1603C003EFF16 /* XCRemoteSwiftPackageReference "OpenAI" */;
+			productName = OpenAI;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 1AC9903B2A01703B00851A14 /* Project object */;
+}

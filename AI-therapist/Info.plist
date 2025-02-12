@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.healthcare-fitness</string>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>Debug</key>
+		<true/>
+		<key>Release</key>
+		<true/>
+	</dict>
+	<key>CFBundleVersion</key>
+	<string>2.2</string>
+	<key>CFBundleShortVersionString</key>
+	<string>2.2</string>
+	<key>UILaunchStoryboardName</key>
+	<string>Launch Screen.storyboard</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Radiant needs your location data</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.bendreyer.Radiant</string>
+	<key>CFBundleExecutable</key>
+	<string>Radiant</string>
+</dict>
+</plist>
