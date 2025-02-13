@@ -12,77 +12,86 @@ import FirebaseAuth
 struct RegisterWithEmailView: View {
     
     @EnvironmentObject var authStateManager: AuthStatusManager
+    @Environment(\.presentationMode) var presentationMode // For dismissing the view
     
     var body: some View {
-        
         ZStack {
-            // Background Image
-            Image("Register_Email_BG")
-                .resizable()
-                .scaledToFill()
+            LinearGradient(gradient: Gradient(colors: [Color("WarmBeige"), Color("SoftCoral"), Color("GentleGold")]),
+                           startPoint: .topLeading,
+                           endPoint: .bottomTrailing)
                 .edgesIgnoringSafeArea(.all)
             
-            VStack {
-                // Close popup Button
-                Image(systemName: "xmark.circle.fill")
+            VStack(spacing: 20) {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundColor(.white.opacity(0.7))
+                            .font(.system(size: 30))
+                    }
+                }
+                .padding(.horizontal, 20)
+                .padding(.top, 10)
+                
+                Text("Register with your email")
+                    .font(.system(size: 28, weight: .bold, design: .rounded))
                     .foregroundColor(.white)
-                    .font(.system(size: 30))
-                    .offset(x: 170, y: -300)
-                    .onTapGesture {
-                        // Dismiss the register with email popup on tap
-                        authStateManager.isRegisterPopupShowing = false
-                    }
-                    .padding(.top, 30)
-                
-                VStack {
-                    // Label
-                    Text("Register with your email")
-                        .padding(.bottom, 400)
-                        .font(.system(size: 30, design: .serif))
-                        .foregroundColor(.white)
-                    
-                    VStack {
-                        // Email text field
-                        TextField("Email", text: $authStateManager.email)
-                            .foregroundColor(Color.white)
-                            .padding(.leading, 20)
-                            .cornerRadius(50)
-                            .frame(maxWidth: 300, minHeight: 40)
-                            .font(.system(size: 25, design: .default))
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 50)
-                                    .stroke(Color.white, lineWidth: 2)
-                            )
-                            .padding(.bottom, 15)
-                        
-                        // Password text fields
-                        SecureField("Password", text: $authStateManager.password)
-                            .foregroundColor(Color.white)
-                            .padding(.leading, 20)
-                            .cornerRadius(50)
-                            .frame(maxWidth: 300, minHeight: 40)
-                            .font(.system(size: 25, design: .default))
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 50)
-                                    .stroke(Color.white, lineWidth: 2)
-                            )
-                            .padding(.bottom, 15)
-                        
-                        // Register Button
-                        Button(action: {
-                            print("From popup View: The Register button on regist with email popup was pressed")
-                            authStateManager.registerWithEmail()
-                            print("Testing async order")
-                        }) {
-                            Text("Register").foregroundColor(.white).font(.system(size: 20)).underline()
-                        }
-                    }
-                    .padding(.bottom, 200)
-                }.offset(y: 80)
-                
+                    .multilineTextAlignment(.center)
+                    .padding(.top, 20)
+
+                TextField("Email", text: $authStateManager.email)
+                    .padding()
+                    .frame(width: 320, height: 50)
+                    .background(Color.white.opacity(0.2))
+                    .cornerRadius(12)
+                    .foregroundColor(.white)
+                    .autocapitalization(.none)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(Color.white.opacity(0.5), lineWidth: 1)
+                    )
+
+                SecureField("Password", text: $authStateManager.password)
+                    .padding()
+                    .frame(width: 320, height: 50)
+                    .background(Color.white.opacity(0.2))
+                    .cornerRadius(12)
+                    .foregroundColor(.white)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(Color.white.opacity(0.5), lineWidth: 1)
+                    )
+
+                Button(action: {
+                    authStateManager.registerWithEmail()
+                }) {
+                    Text("Register")
+                        .font(.headline)
+                        .fontWeight(.medium)
+                        .foregroundColor(Color("SoftCoral"))
+                        .frame(width: 320, height: 50)
+                        .background(Color.white)
+                        .cornerRadius(12)
+                        .shadow(radius: 5)
+                }
+                .padding(.top, 10)
+
+                Spacer()
             }
-            .scrollDismissesKeyboard(.immediately)
+            .padding(.top, 40)
+            
+//            if let errorMessage = authStateManager.authErrorMessage {
+//                Text(errorMessage)
+//                    .foregroundColor(.red)
+//                    .font(.subheadline)
+//                    .multilineTextAlignment(.center)
+//                    .padding()
+//            }
+
         }
+        .scrollDismissesKeyboard(.immediately)
     }
 }
 
@@ -90,6 +99,5 @@ struct RegisterWithEmailView_Previews: PreviewProvider {
     static var previews: some View {
         RegisterWithEmailView()
             .environmentObject(AuthStatusManager())
-        
     }
 }

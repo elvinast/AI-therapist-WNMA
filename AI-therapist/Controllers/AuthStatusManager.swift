@@ -23,6 +23,9 @@ class AuthStatusManager: ObservableObject {
     @Published var email = ""
     @Published var password = ""
     
+    // Error handling
+    @Published var authErrorMessage: String? // Stores errors for UI feedback
+    
     // Variables used for the closed beta
     @Published var betaCode = ""
     @Published var isBetaCodeValid: Bool = false
@@ -55,11 +58,12 @@ class AuthStatusManager: ObservableObject {
     
     
     // Log the user in with email and password
-    func loginWithEmail() {
+    func loginWithEmail(completion: @escaping (String?) -> Void) {
 //        print("The user logged in with email and password")
         
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
             if let e = error {
+                completion(e.localizedDescription)
                 print("Issue when trying to login: \(e.localizedDescription)")
             }
             
@@ -90,49 +94,42 @@ class AuthStatusManager: ObservableObject {
         }
     }
     
-    // TODO: Deprecate this function, it's no  longer used in the view (sign in only available with apple now)
-    // Register the user with email and password
     func registerWithEmail() {
-//        print("User wanted to register with email and password")
+        guard !email.isEmpty, !password.isEmpty else {
+            authErrorMessage = "Email and password cannot be empty."
+            return
+        }
         
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            if let e = error {
-//                print("There was an issue when trying to register: \(e.localizedDescription)")
+        Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
+            guard let self = self else { return }
+            
+            if let error = error {
+                DispatchQueue.main.async {
+                    self.authErrorMessage = error.localizedDescription
+                }
+                print("❌ Registration Error: \(error.localizedDescription)")
                 return
             }
             
             guard let user = authResult?.user else {
-//                print("No user")
+                DispatchQueue.main.async {
+                    self.authErrorMessage = "Failed to retrieve user data."
+                }
+                print("❌ No user returned after registration.")
                 return
             }
-            
-//            print("User was registered as user, \(user.uid) with email \(user.email ?? "email null")")
-            self.isLoggedIn = true
-            self.isRegisterPopupShowing = false
-            
-            // Set user defaults to keep the user logged in
-            UserDefaults.standard.set(self.email, forKey: emailKey)
-            UserDefaults.standard.set(self.isLoggedIn, forKey: loginStatusKey)
-            
-            // Set beta status as false after register before user enters their code
-//            print("setting the user default for the beta as false")
-            UserDefaults.standard.set(false, forKey: isUserValidForBetaKey)
-            
-            // Set the user default for the user completing the welcome survey to false, they will complete it after register
-//            print("setting the user default for the welcome survey as false")
-            UserDefaults.standard.set(false, forKey: hasUserCompletedWelcomeSurveyKey)
-            
-            // Create the user profile in Firestore
-            let userProf = UserProfile(email: self.email, displayName: self.email)
-            let collectionRef = self.db.collection(Constants.FStore.usersCollectionName)
-            do {
-                try collectionRef.document(user.uid).setData(from: userProf)
-//                print("User stored with new user reference: \(user.uid)")
-            } catch {
-//                print("Error saving user to firestore: \(error.localizedDescription)")
+
+            print("✅ User registered: \(user.uid) with email: \(user.email ?? "No Email")")
+
+            DispatchQueue.main.async {
+                self.isLoggedIn = true
+                self.isRegisterPopupShowing = false
+                self.authErrorMessage = nil
+                UserDefaults.standard.set(self.isLoggedIn, forKey: loginStatusKey)
             }
         }
     }
+
     
     // The function called in the onComplete closure of the SignInWithAppleButton in the RegisterView
     func appleSignInButtonOnCompletion(result: Result<ASAuthorization, Error>) {
@@ -176,8 +173,6 @@ class AuthStatusManager: ObservableObject {
                     }
                     self.isLoggedIn = true
                     self.isRegisterPopupShowing = false
-                    
-                    // Set user defaults
                     UserDefaults.standard.set(self.isLoggedIn, forKey: loginStatusKey)
                     
                     
@@ -190,8 +185,6 @@ class AuthStatusManager: ObservableObject {
                         } else {
                             if querySnapshot!.documents.isEmpty {
                                 // New user is signing in
-                                // Set beta status as false after register before user enters their code
-//                                print("setting the user default for the beta as false")
                                 UserDefaults.standard.set(false, forKey: isUserValidForBetaKey)
                                 
                                 // Set the user default for the user completing the welcome survey to false, they will complete it after register
@@ -269,14 +262,6 @@ class AuthStatusManager: ObservableObject {
         }
         self.isLoggedIn = false
         UserDefaults.standard.set(isLoggedIn, forKey: loginStatusKey)
-        
-//        self.isBetaCodeValid = false
-//        UserDefaults.standard.set(self.isBetaCodeValid, forKey: isUserValidForBetaKey)
-//        
-//        self.hasUserCompletedSurvey = false
-//        UserDefaults.standard.set(self.hasUserCompletedSurvey, forKey: hasUserCompletedWelcomeSurveyKey)
-        
-//        print("The user logged out")
     }
     
     
@@ -451,9 +436,9 @@ class AuthStatusManager: ObservableObject {
             "isPremiumUser": false,
         ]) { err in
             if let err = err {
-//                print("Error writing document: \(err)")
+                print("Error writing document: \(err.localizedDescription)")
             } else {
-//                print("Document successfully written!")
+                print("Data successfully saved in firebase!")
                 // Set user default for completing the welcome survey to true
                 self.hasUserCompletedSurvey = true
                 UserDefaults.standard.set(self.hasUserCompletedSurvey, forKey: hasUserCompletedWelcomeSurveyKey)

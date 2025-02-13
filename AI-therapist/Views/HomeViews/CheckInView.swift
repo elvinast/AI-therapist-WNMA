@@ -19,8 +19,6 @@ struct CheckInView: View {
     
     @State private var todaysDate = Date()
     
-    @State var isUpgradetoPremiumPopupShowing: Bool = false
-    
     var body: some View {
         
         NavigationView {
@@ -270,47 +268,6 @@ struct CheckInView: View {
                                             .frame(width: 80, height: 80)
                                             .foregroundColor(.gray)
                                             .opacity(0.6)
-                                    }
-                                    
-                                    if let isPremium = profileStateManager.userProfile?.isPremiumUser {
-                                        if !isPremium {
-                                            
-                                            Button(action: {
-                                                isUpgradetoPremiumPopupShowing = true
-                                            }) {
-                                                Image(systemName: "lock.circle")
-                                                    .resizable()
-                                                    .frame(width: 30, height: 30)
-                                                    .foregroundColor(.white)
-                                                    .padding(.top, 65)
-                                            }.sheet(isPresented: $isUpgradetoPremiumPopupShowing) {
-                                                UpgradeToPremiumPopup()
-                                            }
-                                            
-                                            Button(action: {
-                                                isUpgradetoPremiumPopupShowing = true
-                                            }) {
-                                                Text("Upgrade to premium to recap your day with a photo")
-                                                    .foregroundColor(.white)
-                                                    .font(.system(size: 16, design: .serif))
-                                                    .padding(.top, 130)
-                                            }
-                                            
-                                        } else {
-                                            Button(action: {
-                                                print("user wanted to added a photo to their check-in")
-                                                checkInManager.isUploadCheckInPhotoShowing = true
-                                            }) {
-                                                Image(systemName: "plus.circle.fill")
-                                                    .resizable()
-                                                    .frame(width: 30, height: 30)
-                                                    .foregroundColor(.white)
-                                                    .padding(.top, 75)
-                                            }
-                                            .sheet(isPresented: $checkInManager.isUploadCheckInPhotoShowing) {
-                                                UploadCheckInPhotoPopup()
-                                            }
-                                        }
                                     }
                                 }
                                 

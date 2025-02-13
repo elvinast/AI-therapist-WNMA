@@ -27,7 +27,6 @@
 		1A60B1802ACA22BC0004AA93 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 1A60B17F2ACA22BC0004AA93 /* FirebaseAnalytics */; };
 		1A60B1822ACA23460004AA93 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1A60B1812ACA23460004AA93 /* FirebaseAnalyticsSwift */; };
 		1A60B1922ADCC0730004AA93 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A60B1912ADCC0730004AA93 /* StoreKit.framework */; };
-		1A60B19C2ADCE27F0004AA93 /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A60B19B2ADCE27F0004AA93 /* PurchaseManager.swift */; };
 		1A60B19E2AE5C64A0004AA93 /* EntitlementManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A60B19D2AE5C64A0004AA93 /* EntitlementManager.swift */; };
 		1A6585E02A2669B800B4DE6D /* ForumCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6585DF2A2669B800B4DE6D /* ForumCategoriesView.swift */; };
 		1A6585E42A29091E00B4DE6D /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6585E32A29091E00B4DE6D /* Message.swift */; };
@@ -93,7 +92,6 @@
 		1A57BB6C2A65AEE50016901D /* CirclularSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CirclularSlider.swift; sourceTree = "<group>"; };
 		1A57BB6E2A66378B0016901D /* CheckInManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInManager.swift; sourceTree = "<group>"; };
 		1A60B1912ADCC0730004AA93 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		1A60B19B2ADCE27F0004AA93 /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
 		1A60B19D2AE5C64A0004AA93 /* EntitlementManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntitlementManager.swift; sourceTree = "<group>"; };
 		1A6585DF2A2669B800B4DE6D /* ForumCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumCategoriesView.swift; sourceTree = "<group>"; };
 		1A6585E32A29091E00B4DE6D /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -353,7 +351,6 @@
 				1A6C47962A5A1F85006DB377 /* HomeManager.swift */,
 				1A57BB6E2A66378B0016901D /* CheckInManager.swift */,
 				1A667F8F2A88185F00186F05 /* HistoryManager.swift */,
-				1A60B19B2ADCE27F0004AA93 /* PurchaseManager.swift */,
 				1A60B19D2AE5C64A0004AA93 /* EntitlementManager.swift */,
 			);
 			path = Controllers;
@@ -502,7 +499,6 @@
 				1A57BB6D2A65AEE50016901D /* CirclularSlider.swift in Sources */,
 				1AE12E7E2A40D5450020F7E3 /* ChatMainView.swift in Sources */,
 				1A57BB6F2A66378B0016901D /* CheckInManager.swift in Sources */,
-				1A60B19C2ADCE27F0004AA93 /* PurchaseManager.swift in Sources */,
 				1AB0B8242A1D2CE600DF1571 /* ForumManager.swift in Sources */,
 				1A56F3D62A05C3FF0057A6D6 /* UserDefaults.swift in Sources */,
 				1A8C6C1F2A02E2A800676E5F /* ActionButtonView.swift in Sources */,

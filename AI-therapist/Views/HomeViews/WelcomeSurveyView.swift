@@ -7,10 +7,8 @@
 
 import SwiftUI
 import FirebaseAuth
-import PhotosUI
 
 struct WelcomeSurveyView: View {
-    
     @EnvironmentObject var authStateManager: AuthStatusManager
     @EnvironmentObject var profileStateManager: ProfileStatusManager
     
@@ -18,91 +16,67 @@ struct WelcomeSurveyView: View {
     
     var body: some View {
         ZStack {
-            Image("Welcome_Survey_BG")
-                .resizable()
-                .scaledToFill()
+            LinearGradient(gradient: Gradient(colors: [Color("WarmBeige"), Color("SoftCoral"), Color("GentleGold")]),
+                           startPoint: .topLeading,
+                           endPoint: .bottomTrailing)
                 .edgesIgnoringSafeArea(.all)
             
-            VStack(alignment: .center) {
-                Text("Welcome to AI-therapist")
-                    .font(.system(size: 24, design: .serif))
-                    .padding(.bottom, 40)
-                    .foregroundColor(.black)
-                
-                Text("Please answer a few questions so we can know you better")
-                    .font(.system(size: 18, design: .serif))
-                    .padding(.bottom, 40)
-                    .padding(.leading, 20)
-                    .padding(.trailing, 20)
-                    .foregroundColor(.black)
-                
+            VStack(spacing: 20) {
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("Welcome to AI-therapist")
+                        .font(.system(size: 26, weight: .bold, design: .rounded))
+                        .foregroundColor(.white)
+                    
+                    Text("Please answer a few questions so we can know you better")
+                        .font(.system(size: 18, weight: .medium, design: .rounded))
+                        .foregroundColor(.white.opacity(0.8))
+                        .multilineTextAlignment(.leading)
+                        .frame(maxWidth: 320, alignment: .leading)
+                }
+                .padding(.horizontal, 20)
+                .padding(.top, 20)
+
                 ScrollView {
-                    VStack {
-                        // Name
-                        VStack {
+                    VStack(spacing: 25) {
+                        VStack(alignment: .leading, spacing: 8) {
                             Text("What's your name?")
-                                .foregroundColor(.black)
-                                .font(.system(size: 20, design: .serif))
-                                .padding(.bottom, 20)
-                            
-                            TextField("Enter text", text: $authStateManager.name)
-                                .font(.system(size: 20, design: .serif))
-                                .padding(.leading, 40)
-                                .foregroundColor(.black)
-                            //                                .padding(20)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(Color.black, lineWidth: 1)
-                                        .padding(20)
-                                        .frame(minWidth: 200, minHeight: 100, maxHeight: 160)
-                                )
-                                .padding(.bottom, 20)
+                                .foregroundColor(.white)
+                                .font(.system(size: 20, weight: .medium))
                         }
-                        
-                        .padding(.bottom, 40)
-                        
-                        // Photo
-                        VStack {
+                        .frame(maxWidth: 320, alignment: .leading)
+                        .padding(.horizontal, 20)
+
+                        TextField("Enter your name", text: $authStateManager.name)
+                            .padding()
+                            .frame(width: 320, height: 50)
+                            .background(Color.white.opacity(0.2))
+                            .cornerRadius(12)
+                            .foregroundColor(.white)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 12)
+                                    .stroke(Color.white.opacity(0.5), lineWidth: 1)
+                            )
+
+                        VStack(alignment: .leading, spacing: 8) {
                             Text("Please select a profile photo:")
-                                .foregroundColor(.black)
-                                .font(.system(size: 20, design: .serif))
-                            
-                            
-                            HStack {
-                                // Profile Pic 1
+                                .foregroundColor(.white)
+                                .font(.system(size: 20, weight: .medium))
+                        }
+                        .frame(maxWidth: 320, alignment: .leading)
+                        .padding(.horizontal, 20)
+
+                        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 15) {
+                            ForEach(0..<4, id: \.self) { index in
                                 Button(action: {
-                                    self.selectedProfilePhoto = 0
+                                    self.selectedProfilePhoto = index
                                 }) {
                                     ZStack {
-                                        Image("profile_photo_0")
+                                        Image("profile_photo_\(index)")
                                             .resizable()
                                             .frame(width: 80, height: 80)
                                             .clipShape(Circle())
                                         
-                                        if self.selectedProfilePhoto == 0 {
-                                            Circle()
-                                                .frame(width: 30, height: 30)
-                                                .foregroundColor(Color.green)
-                                                .offset(x: 25, y: -25)
-                                            
-                                            Image(systemName: "checkmark")
-                                                .foregroundColor(.black)
-                                                .offset(x: 25, y: -25)
-                                        }
-                                    }
-                                }
-                                .padding(.trailing, 10)
-                                // Profile Pic 2
-                                Button(action: {
-                                    self.selectedProfilePhoto = 1
-                                }) {
-                                    ZStack {
-                                        Image("profile_photo_1")
-                                            .resizable()
-                                            .frame(width: 80, height: 80)
-                                            .clipShape(Circle())
-                                        
-                                        if self.selectedProfilePhoto == 1 {
+                                        if self.selectedProfilePhoto == index {
                                             Circle()
                                                 .frame(width: 30, height: 30)
                                                 .foregroundColor(Color.green)
@@ -115,145 +89,46 @@ struct WelcomeSurveyView: View {
                                     }
                                 }
                             }
-                            .padding(.bottom, 10)
-                            
-                            HStack {
-                                // Profile Pic 3
-                                Button(action: {
-                                    self.selectedProfilePhoto = 2
-                                }) {
-                                    ZStack {
-                                        Image("profile_photo_2")
-                                            .resizable()
-                                            .frame(width: 80, height: 80)
-                                            .clipShape(Circle())
-                                        
-                                        if self.selectedProfilePhoto == 2 {
-                                            Circle()
-                                                .frame(width: 30, height: 30)
-                                                .foregroundColor(Color.green)
-                                                .offset(x: 25, y: -25)
-                                            
-                                            Image(systemName: "checkmark")
-                                                .foregroundColor(.black)
-                                                .offset(x: 25, y: -25)
-                                        }
-                                    }
-                                }
-                                .padding(.trailing, 10)
-                                // Profile Pic 4
-                                Button(action: {
-                                    self.selectedProfilePhoto = 3
-                                }) {
-                                    ZStack {
-                                        Image("profile_photo_3")
-                                            .resizable()
-                                            .frame(width: 80, height: 80)
-                                            .clipShape(Circle())
-                                        
-                                        if self.selectedProfilePhoto == 3 {
-                                            Circle()
-                                                .frame(width: 30, height: 30)
-                                                .foregroundColor(Color.green)
-                                                .offset(x: 25, y: -25)
-                                            
-                                            Image(systemName: "checkmark")
-                                                .foregroundColor(.black)
-                                                .offset(x: 25, y: -25)
-                                        }
-                                    }
-                                }
-                            }
-                            .padding(.bottom, 10)
-                            
-                            // Profile Pic 5
-                            Button(action: {
-                                self.selectedProfilePhoto = 4
-                            }) {
-                                ZStack {
-                                    Image("profile_photo_4")
-                                        .resizable()
-                                        .frame(width:80, height: 80)
-                                        .clipShape(Circle())
-                                    
-                                    if self.selectedProfilePhoto == 4 {
-                                        Circle()
-                                            .frame(width: 30, height: 30)
-                                            .foregroundColor(Color.green)
-                                            .offset(x: 25, y: -25)
-                                        
-                                        Image(systemName: "checkmark")
-                                            .foregroundColor(.black)
-                                            .offset(x: 25, y: -25)
-                                    }
-                                }
-                            }
-                            
-                            
                         }
-                        .padding(.bottom, 40)
-                        
-                        // Birthday
-                        VStack {
-                            Text("When's your birthday?")
-                                .foregroundColor(.black)
-                                .font(.system(size: 20, design: .serif))
+
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("What's your username?")
+                                .foregroundColor(.white)
+                                .font(.system(size: 20, weight: .medium))
                             
-                            DatePicker(selection: $authStateManager.birthday, in: ...Date(), displayedComponents: .date) {
-                            }
-                            .padding(.trailing, 140)
-                            .padding(.bottom, 20)
+                            Text("Username is used for the community forum")
+                                .foregroundColor(.white.opacity(0.7))
+                                .font(.system(size: 16))
                         }
-                        
-                        // Display Name
-                        VStack {
-                            Text("What's you username?")
-                                .foregroundColor(.black)
-                                .font(.system(size: 20, design: .serif))
-                            
-                            Text("Username is used for the communty forum")
-                                .foregroundColor(.black)
-                                .font(.system(size: 16, design: .serif))
-                            
-                            
-                            TextField("Enter text", text: $authStateManager.displayName)
-                                .font(.system(size: 20, design: .serif))
-                                .padding(.leading, 10)
-                                .foregroundColor(.black)
-                                .padding(20)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(Color.black, lineWidth: 1)
-                                        .padding(20)
-                                        .frame(minWidth: 200, minHeight: 100, maxHeight: 160)
-                                )
-                                .padding(.bottom, 40)
+                        .frame(maxWidth: 320, alignment: .leading)
+                        .padding(.horizontal, 20)
+
+                        TextField("Enter username", text: $authStateManager.displayName)
+                            .padding()
+                            .frame(width: 320, height: 50)
+                            .background(Color.white.opacity(0.2))
+                            .cornerRadius(12)
+                            .foregroundColor(.white)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 12)
+                                    .stroke(Color.white.opacity(0.5), lineWidth: 1)
+                            )
+
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("What are you looking to get out of this app?")
+                                .foregroundColor(.white)
+                                .font(.system(size: 20, weight: .medium))
                         }
-                        
-                        // Aspiration
-                        VStack {
-                            Text("What are you looking to get out of this app? (Select all)")
-                                .foregroundColor(.black)
-                                .font(.system(size: 20, design: .serif))
-                                .padding(.bottom, 20)
-                            
-                            Aspiration(aspirationText: "Track my mood and goals", goalHue: 1.0, goalSaturation: 0.111)
-                            
-                            Aspiration(aspirationText: "Learn about my mental health via educative activities and articles", goalHue: 0.797, goalSaturation: 0.111)
-                            
-                            Aspiration(aspirationText: "Connect with a like minded community", goalHue: 0.542, goalSaturation: 0.111)
-                            
-                            Aspiration(aspirationText: "Find help in my area", goalHue: 0.324, goalSaturation: 0.111)
+                        .frame(maxWidth: 320, alignment: .leading)
+                        .padding(.horizontal, 20)
+
+                        VStack(spacing: 12) {
+                            Aspiration(aspirationText: "Track my mood and goals", goalHue: 1.0)
+                            Aspiration(aspirationText: "Learn about my mental health", goalHue: 0.797)
+                            Aspiration(aspirationText: "Connect with a like-minded people", goalHue: 0.542)
+                            Aspiration(aspirationText: "Find help in my area", goalHue: 0.324)
                         }
-                        .padding(.bottom, 40)
-                        
-                        
-                        if authStateManager.isErrorInSurvey {
-                            Text(authStateManager.errorText)
-                                .foregroundColor(.red)
-                                .font(.system(size: 20, design: .serif))
-                        }
-                        // Submit
+
                         Button(action: {
                             print("User wanted to finish their welcome survey")
                             if let user = Auth.auth().currentUser?.uid {
@@ -262,28 +137,26 @@ struct WelcomeSurveyView: View {
                                 // Update user profile with new info
                                 //    This may not work because the completeWelcomeSurvey function is async and may take some time to update
                                 profileStateManager.retrieveUserProfile(userID: user)
+//                            if let user = Auth.auth().currentUser?.uid {
+//                                authStateManager.completeWelcomeSurvey(user: user, userPhotoSelection: self.selectedProfilePhoto)
+//                                profileStateManager.retrieveUserProfile(userID: user)
                             }
                         }) {
-                            
-                            RoundedRectangle(cornerRadius: 25)
-                                .frame(maxWidth: 240, minHeight: 60)
-                                .overlay {
-                                    Text("Continue to AI-therapist")
-                                        .foregroundColor(.white)
-                                        .font(.system(size: 20, design: .serif))
-                                }
-                            
+                            Text("Continue to AI-therapist")
+                                .font(.headline)
+                                .fontWeight(.medium)
+                                .foregroundColor(Color("SoftCoral"))
+                                .frame(width: 320, height: 50)
+                                .background(Color.white)
+                                .cornerRadius(12)
+                                .shadow(radius: 5)
                         }
-                        .padding(.bottom, 40)
-                        
+                        .padding(.top, 20)
                     }
-                    .padding(.bottom, 40)
                 }
-                .padding(.bottom, 80)
-                .scrollDismissesKeyboard(.immediately)
+                .padding(.top, 10)
             }
-            .padding(.top, 140)
-            
+            .padding(.top, 20)
         }
     }
 }
@@ -299,43 +172,35 @@ struct WelcomeSurveyView_Previews: PreviewProvider {
 struct Aspiration : View {
     let aspirationText: String?
     let goalHue: CGFloat?
-    let goalSaturation: CGFloat?
-    
+
     @State var aspirationSelected = false
     
     var body: some View {
         Button(action: {
-            print("goal complete")
-            aspirationSelected = !aspirationSelected
+            aspirationSelected.toggle()
         }) {
             RoundedRectangle(cornerRadius: 20)
-                .foregroundColor(Color(hue: goalHue!, saturation: goalSaturation!, brightness: 1.0))
-                .frame(width: 360, height: 60, alignment: .leading)
+                .foregroundColor(aspirationSelected ? Color.green.opacity(0.7) : Color.white.opacity(0.2))
+                .frame(width: 320, height: 50)
                 .overlay {
-                    VStack() {
+                    HStack {
+                        Text(aspirationText!)
+                            .foregroundColor(.white)
+                            .font(.system(size: 16, weight: .medium))
+                            .padding(.leading, 15)
+                        
+                        Spacer()
+                        
                         if aspirationSelected {
-                            Text(aspirationText!)
+                            Image(systemName: "checkmark.circle.fill")
+                                .resizable()
+                                .frame(width: 20, height: 20)
                                 .foregroundColor(.green)
-                                .font(.system(size: 16, design: .serif))
+                                .padding(.trailing, 15)
                         }
-                        else {
-                            Text(aspirationText!)
-                                .foregroundColor(.black)
-                                .font(.system(size: 16, design: .serif))
-                        }
-                    }
-                    .padding(.trailing, 20)
-                    .padding(.leading, 20)
-                    
-                    if aspirationSelected {
-                        Image(systemName: "checkmark.circle.fill")
-                            .resizable()
-                            .frame(width: 24, height: 26, alignment: .leading)
-                            .foregroundColor(.green)
-                            .offset(x: 175, y: -28)
                     }
                 }
+                .animation(.easeInOut, value: aspirationSelected)
         }
     }
 }
-

@@ -8,77 +8,106 @@
 import SwiftUI
 
 struct LoginWithEmailView: View {
-    
     @EnvironmentObject var authStateManager: AuthStatusManager
+    @Environment(\.presentationMode) var presentationMode
     
+    @State private var showAlert = false
     
     var body: some View {
         ZStack {
-            // Background Image
-            Image("Login_Email_BG")
-                .resizable()
-                .scaledToFill()
+            // Gradient Background
+            LinearGradient(gradient: Gradient(colors: [Color("WarmBeige"), Color("SoftCoral"), Color("GentleGold")]),
+                           startPoint: .topLeading,
+                           endPoint: .bottomTrailing)
                 .edgesIgnoringSafeArea(.all)
             
-            VStack {
-                // Close popup Button
-                Image(systemName: "xmark.circle.fill")
-                    .foregroundColor(.white)
-                    .font(.system(size: 30))
-                    .offset(x: 170, y: -300)
-                    .onTapGesture {
-                        // Dismiss the register with email popup on tap
-                        authStateManager.isLoginPopupShowing = false
-                    }
-                    .padding(.top, 30)
-                
-                VStack {
-                    // Label
-                    Text("Login with your email")
-                        .padding(.bottom, 400)
-                        .font(.system(size: 30, design: .serif))
-                        .foregroundColor(.white)
-                    
-                    // Email text field
-                    TextField("Email", text: $authStateManager.email)
-                        .foregroundColor(Color.white)
-                        .padding(.leading, 20)
-                        .cornerRadius(50)
-                        .frame(maxWidth: 300, minHeight: 40)
-                        .font(.system(size: 25, design: .default))
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 50)
-                                .stroke(Color.white, lineWidth: 2)
-                        )
-                        .padding(.bottom, 15)
-                        
-                    // Password text fields
-                    SecureField("Password", text: $authStateManager.password)
-                        .foregroundColor(Color.white)
-                        .padding(.leading, 20)
-                        .cornerRadius(50)
-                        .frame(maxWidth: 300, minHeight: 40)
-                        .font(.system(size: 25, design: .default))
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 50)
-                                .stroke(Color.white, lineWidth: 2)
-                        )
-                        .padding(.bottom, 15)
-                    
-                    // Register Button
+            VStack(spacing: 20) {
+                // Close Button
+                HStack {
+                    Spacer()
                     Button(action: {
-                        print("From popup View: The Login button on Login with email popup was pressed")
-                        authStateManager.loginWithEmail()
-                        print("Testing async order")
+                        presentationMode.wrappedValue.dismiss()
                     }) {
-                        Text("Login").foregroundColor(.white).font(.system(size: 20)).underline()
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundColor(.white.opacity(0.7))
+                            .font(.system(size: 30))
                     }
                 }
+                .padding(.horizontal, 20)
+                .padding(.top, 10)
                 
+                // Title & Description
+                Text("Login with your email")
+                    .font(.system(size: 26, weight: .bold, design: .rounded))
+                    .foregroundColor(.white)
+                
+                // Input Fields
+                VStack(spacing: 25) {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Email")
+                            .foregroundColor(.white)
+                            .font(.system(size: 20, weight: .medium))
+                    }
+                    .frame(maxWidth: 320, alignment: .leading)
+                    .padding(.horizontal, 20)
+
+                    TextField("Enter your email", text: $authStateManager.email)
+                        .padding()
+                        .frame(width: 320, height: 50)
+                        .background(Color.white.opacity(0.2))
+                        .cornerRadius(12)
+                        .foregroundColor(.white)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(Color.white.opacity(0.5), lineWidth: 1)
+                        )
+
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Password")
+                            .foregroundColor(.white)
+                            .font(.system(size: 20, weight: .medium))
+                    }
+                    .frame(maxWidth: 320, alignment: .leading)
+                    .padding(.horizontal, 20)
+
+                    SecureField("Enter your password", text: $authStateManager.password)
+                        .padding()
+                        .frame(width: 320, height: 50)
+                        .background(Color.white.opacity(0.2))
+                        .cornerRadius(12)
+                        .foregroundColor(.white)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(Color.white.opacity(0.5), lineWidth: 1)
+                        )
+                    
+                    Spacer()
+                    
+                    // Login Button
+                    Button(action: {
+                        authStateManager.loginWithEmail { error in
+                            if let error {
+                                self.showAlert = true
+                            }
+                        }
+                    }) {
+                        Text("Login")
+                            .font(.headline)
+                            .fontWeight(.medium)
+                            .foregroundColor(Color("SoftCoral"))
+                            .frame(width: 320, height: 50)
+                            .background(Color.white)
+                            .cornerRadius(12)
+                            .shadow(radius: 5)
+                    }
+                    .padding(.top, 20)
+                }
             }
-            .padding(.bottom, 60)
-            .scrollDismissesKeyboard(.immediately)
         }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Error"), message: Text("Email or passowrd is wrong. Try again."), dismissButton: .default(Text("OK")))
+        }
+        .scrollDismissesKeyboard(.immediately)
     }
 }
 
