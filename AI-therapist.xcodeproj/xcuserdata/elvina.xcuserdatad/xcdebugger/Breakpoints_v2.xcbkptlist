@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "4E89B918-84B3-4520-8264-0A638B8D464F"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F6812671-80DC-400A-ADC5-2FABB01F1505"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AI-therapist/Controllers/AuthStatusManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "414"
+            endingLineNumber = "414"
+            landmarkName = "completeWelcomeSurvey(user:userPhotoSelection:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F6812671-80DC-400A-ADC5-2FABB01F1505 - cb9040a7d9001130"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AI_therapist.AuthStatusManager.completeWelcomeSurvey(user: Swift.String, userPhotoSelection: Swift.Int) -&gt; ()"
+                  moduleName = "AI-therapist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elvina/Desktop/AI-therapist/AI-therapist/Controllers/AuthStatusManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "414"
+                  endingLineNumber = "414"
+                  offsetFromSymbolStart = "448">
+               </Location>
+               <Location
+                  uuid = "F6812671-80DC-400A-ADC5-2FABB01F1505 - cb9040a7d9001130"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AI_therapist.AuthStatusManager.completeWelcomeSurvey(user: Swift.String, userPhotoSelection: Swift.Int) -&gt; ()"
+                  moduleName = "AI-therapist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elvina/Desktop/AI-therapist/AI-therapist/Controllers/AuthStatusManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "414"
+                  endingLineNumber = "414"
+                  offsetFromSymbolStart = "400">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D46EAD9C-0128-4D84-8CE2-8EA94C21533D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AI-therapist/Controllers/AuthStatusManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "408"
+            endingLineNumber = "408"
+            landmarkName = "completeWelcomeSurvey(user:userPhotoSelection:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D46EAD9C-0128-4D84-8CE2-8EA94C21533D - cb9040a7d900127a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AI_therapist.AuthStatusManager.completeWelcomeSurvey(user: Swift.String, userPhotoSelection: Swift.Int) -&gt; ()"
+                  moduleName = "AI-therapist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elvina/Desktop/AI-therapist/AI-therapist/Controllers/AuthStatusManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "408"
+                  endingLineNumber = "408"
+                  offsetFromSymbolStart = "284">
+               </Location>
+               <Location
+                  uuid = "D46EAD9C-0128-4D84-8CE2-8EA94C21533D - cb9040a7d900127a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AI_therapist.AuthStatusManager.completeWelcomeSurvey(user: Swift.String, userPhotoSelection: Swift.Int) -&gt; ()"
+                  moduleName = "AI-therapist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elvina/Desktop/AI-therapist/AI-therapist/Controllers/AuthStatusManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "408"
+                  endingLineNumber = "408"
+                  offsetFromSymbolStart = "264">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "71C822CD-F4CE-4131-BA0F-E2E348163874"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AI-therapist/Controllers/AuthStatusManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "439"
+            endingLineNumber = "439"
+            landmarkName = "completeWelcomeSurvey(user:userPhotoSelection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

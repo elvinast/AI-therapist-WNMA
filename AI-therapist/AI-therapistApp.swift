@@ -16,7 +16,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         FirebaseApp.configure()
         let db = Firestore.firestore()
-        let storage = Storage.storage()
+        _ = Storage.storage()
         print("Database: \(db)")
     
         if let loginStatus = UserDefaults.standard.object(forKey: loginStatusKey) as? Bool {
@@ -37,27 +37,17 @@ struct AITherapistApp: App {
     
     @StateObject
         private var entitlementManager: EntitlementManager
-
-    @StateObject
-    private var purchaseManager: PurchaseManager
     
     init() {
         let entitlementManager = EntitlementManager()
-        let purchaseManager = PurchaseManager()
         
         self._entitlementManager = StateObject(wrappedValue: entitlementManager)
-        self._purchaseManager = StateObject(wrappedValue: purchaseManager)
     }
-    
     
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(entitlementManager)
-                .environmentObject(purchaseManager)
-                .task {
-                    await purchaseManager.updatePurchasedProducts()
-                }
         }
     }
 }

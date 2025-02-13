@@ -243,17 +243,6 @@ struct ProfileSettingsView: View {
                     }
                     
                     Section(header: Text("Account")) {
-                        Button {
-                            Task {
-                                do {
-                                    try await AppStore.sync()
-                                } catch {
-                                    print(error)
-                                }
-                            }
-                        } label: {
-                            Text("Restore Purchases")
-                        }
                         Button(action: {
                             // Sign out of account
                             authStateManager.logOut()
