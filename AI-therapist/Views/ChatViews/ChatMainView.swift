@@ -12,21 +12,19 @@ import FirebaseFirestoreSwift
 
 struct ChatMainView: View {
     
-//    @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
     @EnvironmentObject var authStateManager: AuthStatusManager
     @EnvironmentObject var profileStateManager: ProfileStatusManager
     @StateObject var chatManager = ChatManager()
     
     @State var text: String
     
-    // vars for the loading response animation
     @State var textForLoadingResponse: String = ""
     let finalText: String = "....."
     
     let db = Firestore.firestore()
     
     @State var messages: [Message] = []
-    var welcomeMessage = "Hi there! I'm your AI therapist, a chatbot designed to help you. You can talk to me to help with your mental health questions, find professional help, and improve your mood. You can ask me all types of questions and I'll help you as best I can!"
+    var welcomeMessage = "Hi! I'm your AI therapist, here to support you. Feel free to talk to me about your mental health concerns, seek professional guidance, or explore ways to boost your mood. Ask me anything, and I'll do my best to assist you!"
     
     var body: some View {
         ZStack {
@@ -38,16 +36,6 @@ struct ChatMainView: View {
             VStack {
                 
                 HStack {
-//                    Image("AI-therapistBotPic")
-//                        .resizable()
-//                        .frame(width: 100, height: 100)
-//
-                    Text("Powered by OpenAI")
-                        .foregroundColor(.white)
-                        .font(.system(size: 14, design: .serif))
-                        .padding(.leading, 10)
-                        .padding(.top, 10)
-                    Spacer()
                     
                     Button(action: {
                         // rate limiting check
@@ -65,10 +53,6 @@ struct ChatMainView: View {
                             .foregroundColor(.white)
                             .font(.system(size: 16, design: .serif))
                         
-                        Image(systemName: "arrow.clockwise")
-                            .resizable()
-                            .frame(maxWidth: 20, maxHeight: 20, alignment: .trailing)
-                            .foregroundColor(.white)
                     }
                     .padding(.top, 10)
                 }
@@ -77,8 +61,7 @@ struct ChatMainView: View {
                 
                 
                 
-                ScrollViewReader { value in
-                    // This is the scroll view.
+                ScrollViewReader { proxy in
                     ScrollView {
                         // Messages
                         VStack(alignment: .leading) {
@@ -93,8 +76,6 @@ struct ChatMainView: View {
                                             MessageFromYou(text: message.content, profilePhoto: Image("default_prof_pic"))
                                                 .id(message.id)
                                         }
-//                                        MessageFromYou(text: message.content)
-//                                            .id(message.id)
                                     } else {
                                         MessageFromBot(text: message.content)
                                             .id(message.id)
@@ -111,16 +92,13 @@ struct ChatMainView: View {
                                     }
                             }
                         }
+                        .frame(maxWidth: .infinity)
                     }
                     .padding(.top, 5)
                     .padding(.bottom, 5)
-//                    .onAppear {
-//                        value.scrollTo(self.messages.last?.id)
-//                    }
-//                    .onChange(of: self.messages.count) { _ in
-//                        value.scrollTo(self.messages.last?.id)
-//                    }
-                    
+                    .onChange(of: chatManager.messages.count) { _ in
+                        proxy.scrollTo(chatManager.messages.last?.id, anchor: .bottom)
+                    }
                 }
                 
                 // Error Text
@@ -132,9 +110,9 @@ struct ChatMainView: View {
                 
                 // Message send bar
                 HStack {
-                    TextField("Hi!", text: $text, axis: .vertical)
+                    TextField("Ask something...", text: $text, axis: .vertical)
                         .padding()
-                        .foregroundColor(.white)
+                        .foregroundColor(.black)
                         .padding(.leading, 35)
                         .lineLimit(1...4)
                         .font(.system(size: 16, design: .serif))
@@ -165,9 +143,14 @@ struct ChatMainView: View {
                             } else {
                                 if let user = profileStateManager.userProfile {
                                     print("user pressed send message button")
-                                    if chatManager.sendMessage(userID: user.id!, content: self.text, isPremiumUser: user.isPremiumUser, lastMessageSendDate: user.lastMessageSendDate, numMessagesSentToday: user.numMessagesSentToday) == true {
-                                        // message sent successfully
-                                        if user.isPremiumUser == false {
+                                    chatManager.sendMessage(
+                                        userID: user.id!,
+                                        content: self.text,
+                                        isPremiumUser: user.isPremiumUser,
+                                        lastMessageSendDate: user.lastMessageSendDate,
+                                        numMessagesSentToday: user.numMessagesSentToday
+                                    ) { isValid in
+                                        if isValid {
                                             profileStateManager.retrieveUserProfile(userID: user.id!)
                                         }
                                     }
@@ -184,21 +167,12 @@ struct ChatMainView: View {
                         }
                     }
                 }
-                .padding(.bottom, 100)
             }
             .adaptsToKeyboard()
-            .padding(.top, 100)
             .scrollDismissesKeyboard(.immediately)
-            .animation(.easeInOut(duration: 1.0))
         }
         .background(Color.clear)
-//        .ignoresSafeArea(.keyboard)
         .environmentObject(chatManager)
-        .onAppear {
-//            if let user = profileStateManager.userProfile {
-//                chatManager.retrieveMessages(userID: user.id!)
-//            }
-        }
     }
     
     func typeWriter(at position: Int = 0) {
@@ -212,29 +186,6 @@ struct ChatMainView: View {
             }
         }
     }
-    
-//    func retrieveMessages(userID: String) {
-//        self.messages = []
-//
-//        let collectionRef = self.db.collection(Constants.FStore.messageCollectionName).whereField("userID", isEqualTo: userID).order(by: "date", descending: false)
-//
-//        collectionRef.getDocuments() { (querySnapshot, err) in
-//            if let err = err {
-//                print("Error retrieving comments: \(err.localizedDescription)")
-//            } else if let querySnapshot = querySnapshot {
-//                for document in querySnapshot.documents {
-//                    let message = Message(
-//                        id: document.documentID,
-//                        userID: document.data()["userID"] as? String,
-//                        isMessageFromUser: document.data()["isMessageFromUser"] as? Bool,
-//                        content: document.data()["content"] as? String,
-//                        date: document.data()["date"] as? Date)
-//                    self.messages.append(message)
-//                    print("Message was retrieved, messageID: \(document.documentID), message content: \(document.data()["content"] as? String ?? "No Content")")
-//                }
-//            }
-//        }
-//    }
     
 }
 
@@ -259,56 +210,13 @@ struct MessageFromYou : View {
     let profilePhoto: Image?
     var body: some View {
         
-//        HStack {
-//            ZStack {
-//                // Create the bubble shape
-//                RoundedRectangle(cornerRadius: 20)
-//                    .fill(Color.blue)
-//
-//                // Add the text content
-//                Text(text ?? "No text")
-//                    .padding()
-//                    .foregroundColor(.white)
-//                    .font(.system(size: 16, design: .serif))
-//            }
-//            .frame(maxWidth: .infinity, maxHeight: .infinity)
-//            .background(Color.white)
-//            .cornerRadius(20)
-//            .padding(.leading, 60)
-            
-//            Label(text ?? "", systemImage: "")
-//                .font(.system(size: 16, design: .serif))
-//                .foregroundColor(.white)
-//                .padding()
-//                .background(.blue.opacity(0.75), in: Capsule())
-//                .padding(.leading, 60)
-//
-//
-//            RoundedRectangle(cornerRadius: 25)
-//                .fill(Color.blue)
-//                .frame(minWidth: 40, maxWidth: 300, maxHeight: .infinity)
-//                .overlay {
-//                    Text(text ?? "")
-//                        .font(.system(size: 16, design: .serif))
-//                        .padding()
-//                }
-//
-//            profilePhoto!
-//                .resizable()
-//                .frame(width: 40, height: 40)
-//                .clipShape(Circle())
-//                .padding(.trailing, 10)
-//
-//        }
-//        .padding(.trailing, 8)
         ChatBubble(direction: .right) {
             Text(text ?? "")
                 .padding(.all, 20)
-                .foregroundColor(.white)
+                .foregroundColor(.black)
                 .background(Color.blue.opacity(0.70))
                 .font(.system(size: 16, design: .serif))
         }
-        
     }
 }
 
@@ -316,39 +224,16 @@ struct MessageFromBot : View {
     let text: String?
     var body: some View {
         
-//        HStack {
-//            Image("AI-therapistBotPic")
-//                .resizable()
-//                .frame(width: 40, height: 40)
-//                .clipShape(Circle())
-//                .padding(.trailing, 10)
-//
-//            ZStack {
-//                // Create the bubble shape
-//                RoundedRectangle(cornerRadius: 16)
-//                    .fill(Color.black.opacity(0.80))
-//
-//                // Add the text content
-//                Text(text ?? "No text")
-//                    .padding()
-//                    .foregroundColor(.white)
-//                    .font(.system(size: 16, design: .serif))
-//            }
-//            .frame(maxWidth: .infinity, maxHeight: .infinity)
-//            .background(Color.white)
-//            .cornerRadius(16)
-//            .padding(.trailing, 50)
-//
-//        }
-//        .padding(.leading, 15)
         ChatBubble(direction: .left) {
             Text(text ?? "")
                 .padding(.all, 20)
                 .foregroundColor(.white)
                 .background(Color.black.opacity(0.70))
                 .font(.system(size: 16, design: .serif))
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .fixedSize(horizontal: false, vertical: true)
         }
-        
+        .padding(.horizontal, 10)
     }
 }
 
@@ -391,8 +276,6 @@ struct ChatBubble<Content>: View where Content: View {
         .padding(.leading, 20)
         .padding(.trailing, 20)
         .padding(.bottom, 5)
-//        .padding([(direction == .left) ? .leading : .trailing, .top, .bottom], 20)
-//        .padding((direction == .right) ? .leading : .trailing, 50)
     }
 }
 
@@ -474,7 +357,3 @@ struct ChatBubbleShape: Shape {
         return path
     }
 }
-
-
-
-
