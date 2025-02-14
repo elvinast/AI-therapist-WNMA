@@ -16,7 +16,7 @@ import Foundation
 import OpenAI
 
 struct Secrets {
-    static let openAiAPIKey = "YOUR_API_KEY"
+    static let openAiAPIKey = "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"
 }
 
 class ChatManager: ObservableObject {
@@ -43,141 +43,144 @@ class ChatManager: ObservableObject {
         
         let collectionRef = self.db.collection(Constants.FStore.messageCollectionName).whereField("userID", isEqualTo: userID).order(by: "date", descending: false)
         
-        collectionRef.getDocuments() { (querySnapshot, err) in
+        collectionRef.addSnapshotListener() { (querySnapshot, err) in
             if let err = err {
                 print("Error retrieving comments: \(err.localizedDescription)")
             } else if let querySnapshot = querySnapshot {
-                for document in querySnapshot.documents {
-                    let message = Message(
-                        id: document.documentID,
-                        userID: document.data()["userID"] as? String,
-                        isMessageFromUser: document.data()["isMessageFromUser"] as? Bool,
-                        content: document.data()["content"] as? String,
-                        date: document.data()["date"] as? Date)
-                    self.messages.append(message)
-//                    print("Message was retrieved, messageID: \(document.documentID), message content: \(document.data()["content"] as? String ?? "No Content")")
+                DispatchQueue.main.async {
+                    for document in querySnapshot.documents {
+                        let message = Message(
+                            id: document.documentID,
+                            userID: document.data()["userID"] as? String,
+                            isMessageFromUser: document.data()["isMessageFromUser"] as? Bool,
+                            content: document.data()["content"] as? String,
+                            date: document.data()["date"] as? Date)
+                        self.messages.append(message)
+                    }
                 }
             }
         }
     }
     
-    func sendMessage(userID: String, content: String, isPremiumUser: Bool?, lastMessageSendDate: Date?, numMessagesSentToday: Int?) -> Bool {
-        
-        // Free user rate limiting check
-        var newNumMessagesToday = 0
-        if let premium = isPremiumUser {
-            if premium == false {
-                if let lastMessageSendDate = lastMessageSendDate {
-                    // Get current date
-                    let currentDate = Date()
-                    // Check if last message was sent today
-                    if lastMessageSendDate > (currentDate - 86400) {
-                        if let numMessagesSentToday = numMessagesSentToday {
-                            if numMessagesSentToday >= 5 {
-                                self.isErrorSendingMessage = true
-                                self.errorText = "You've sent the max amount of messages today. Upgrate to premium to send unlimited chat messages."
-                                return false
-                            } else {
-                                newNumMessagesToday = numMessagesSentToday
-                            }
-                        }
-                    } else {
-                        newNumMessagesToday = 0
-                    }
+    func classifyMessage(_ message: String, completion: @escaping (Bool) -> Void) {
+        let classificationPrompt = """
+        Classify the following message as 'therapy' or 'random'.
+        If the message is related to mental health, emotions, or therapy, respond only with 'therapy'. Otherwise, respond with 'random'.
+
+        Message: \(message)
+        """
+
+        let query = ChatQuery(messages: [.init(role: .user, content: classificationPrompt)!], model: .gpt4_o)
+
+        openAI.chats(query: query) { result in
+            switch result {
+            case .success(let response):
+                if let classification = response.choices.first?.message.content?.string?.trimmingCharacters(in: .whitespacesAndNewlines) {
+                    completion(classification.lowercased() == "therapy")
+                } else {
+                    completion(false)
                 }
-                // Free user hasn't reached message quota. Write to their userProfile. Don't write for premium users
-                db.collection("users").document(userID).updateData([
+            case .failure:
+                completion(false)
+            }
+        }
+    }
+
+    func sendMessage(
+        userID: String,
+        content: String,
+        isPremiumUser: Bool?,
+        lastMessageSendDate: Date?,
+        numMessagesSentToday: Int?,
+        completion: @escaping (Bool) -> Void
+    ) {
+        errorText = ""
+        classifyMessage(content) { isValid in
+            DispatchQueue.main.async {
+                if !isValid {
+                    self.isErrorSendingMessage = true
+                    self.errorText = "Ask something related to your mental state and healthcare."
+                    completion(false)
+                    return
+                }
+
+                // Update Firestore with new message count
+                self.db.collection("users").document(userID).updateData([
                     "lastMessageSendDate": Date(),
-                    "numMessagesSentToday": newNumMessagesToday + 1
+                    "numMessagesSentToday": (numMessagesSentToday ?? 0) + 1
                 ]) { err in
                     if let err = err {
                         print("Error updating user chat fields: \(err)")
                     } else {
-                        print("User chat fields updated successfully written!")
+                        print("User chat fields updated successfully!")
                     }
                 }
-            }
-        }
-        
-        if content.count > 300 {
-//            print("Message length too long")
-            self.isErrorSendingMessage = true
-            self.errorText = "Message length is too long"
-            return false
-        }
-        
-        let message = Message(id: "\(self.currentId)", userID: userID, isMessageFromUser: true, content: content, date: Date.now)
-        self.currentId += 1
-        // Firebase will assign it's own id
-        let messageForFirebase = Message(userID: userID, isMessageFromUser: true, content: content, date: Date.now)
-        self.messages.append(message)
-        self.displayLoadingMessage = true
-        
-        let collectionName = Constants.FStore.messageCollectionName
-        
-        var ref: DocumentReference? = nil
-        do {
-            try ref = db.collection(collectionName).addDocument(from: messageForFirebase)
-//            print("successfully saved message to db")
-        } catch {
-//            print("Error saving message to firestore")
-        }
 
-                
-        // Generate OpenAI response
-        let query = ChatQuery(messages: [.init(role: .user, content: content)!], model: .gpt3_5Turbo /*, maxTokens: 60*/)
-        openAI.chats(query: query) { result in
-          // Handle result here
-            switch result {
-            case .success(let result):
-                if let response = result.choices[0].message.content {
-//                    print("OPENAI RESPONSE: \(response)")
-                    let responseMessage = Message(id: "\(self.currentId)", userID: userID, isMessageFromUser: false, content: "\(response)", date: Date.now)
-                    self.currentId += 1
-                    let responseMessageForFirebase = Message(userID: userID, isMessageFromUser: false, content: "\(response)", date: Date.now)
-                    do {
-                        try ref = self.db.collection(collectionName).addDocument(from: responseMessageForFirebase)
-//                        print("successfully saved response message to db")
-//                        self.retrieveMessages(userID: userID)
-                        self.displayLoadingMessage = false
-                        self.messages.append(responseMessage)
-                    } catch {
-//                        print("Error saving response message to firestore")
-                    }
-                } else {
-//                    print("Response from openAI empty")
+                let message = Message(userID: userID, isMessageFromUser: true, content: content, date: Date())
+                self.messages.append(message)
+                self.displayLoadingMessage = true
+
+                let collectionName = Constants.FStore.messageCollectionName
+                var ref: DocumentReference? = nil
+                do {
+                    try ref = self.db.collection(collectionName).addDocument(from: message)
+                } catch {
+                    print("Error saving message to Firestore: \(error.localizedDescription)")
                 }
-            case .failure(let error):
-//                print("Error getting result: \(error.localizedDescription)")
-                break
+
+                // Generate OpenAI response
+                let query = ChatQuery(messages: [.init(role: .user, content: content)!], model: .gpt3_5Turbo, maxTokens: 500)
+                self.openAI.chats(query: query) { result in
+                    DispatchQueue.main.async {
+                        self.displayLoadingMessage = false
+                        switch result {
+                        case .success(let result):
+                            if let response = result.choices.first?.message.content {
+                                let responseMessage = Message(userID: userID, isMessageFromUser: false, content: response.string, date: Date())
+                                self.messages.append(responseMessage)
+
+                                do {
+                                    try ref = self.db.collection(collectionName).addDocument(from: responseMessage)
+                                } catch {
+                                    print("Error saving response message to Firestore: \(error.localizedDescription)")
+                                    self.isErrorSendingMessage = true
+                                    self.errorText = "Failed to save message. Try again later."
+                                }
+                            }
+                            completion(true)
+                        case .failure(let error):
+                            print("OpenAI API error: \(error.localizedDescription)")
+                            self.isErrorSendingMessage = true
+                            self.errorText = "AI response failed. Try again later."
+                            completion(false)
+                        }
+                    }
+                }
             }
         }
-        return true
     }
+
     
     func clearMessages(userID: String) {
-//        print("user wanted to reset chat")
-        // lookup and delete all messages where the userID = userID
         let collectionRef = self.db.collection(Constants.FStore.messageCollectionName)
-        let query = collectionRef.whereField("userID", isEqualTo: userID)
+        let query = collectionRef.whereField("userID", isEqualTo: userID).order(by: "date", descending: false)
         
         query.getDocuments() { (snapshot, error) in
             if let err = error {
-//                print("error getting messages to delete: \(err.localizedDescription)")
+                print("error getting messages to delete: \(err.localizedDescription)")
                 return
             }
             
             for document in snapshot!.documents {
                 document.reference.delete() { error in
                     if let e = error {
-//                        print("error deleting document: \(e.localizedDescription)")
+                        print("error deleting document: \(e.localizedDescription)")
                     } else {
-//                        print("Document deleted!")
+                        print("Document deleted!")
                     }
                 }
             }
             self.messages = []
         }
     }
-    
 }

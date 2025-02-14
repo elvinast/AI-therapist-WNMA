@@ -164,45 +164,15 @@ struct HistoryMainView: View {
                         if let journalEntry = historyManager.focusedDay?.checkIn?.journalEntry {
                             JournalEntry(journalText: journalEntry)
                         }
-                        
-                        
-                        // Todo: Find a better way to display the photo of the day
-//                        HStack {
-//                            Text("Photo of the day")
-//                                .font(.system(size: 20, design: .serif))
-//                                .foregroundColor(.white)
-//
-//                            Spacer()
-//                            // Display the photo
-//                            if historyManager.focusedDay!.doesCheckInPhotoExist == true {
-//                                Image(uiImage: historyManager.checkInPremiumPhotos[self.historyManager.focusedDay!.formattedDateForFirestore] ?? UIImage())
-//                                    .resizable()
-//                                    .frame(width: 100, height: 100)
-//                                    .clipShape(Circle())
-//                                    .padding(.top, 40)
-//                            }
-//                        }
-                    } else {
-                        // add something to indicate no check-in was logged
                     }
                 }
                 .padding(.leading, 20)
                 .padding(.trailing, 20)
-                .padding(.bottom, 100)
             }
-            .padding(.top, 100)
             .onAppear {
                 if let user = Auth.auth().currentUser?.uid {
                     historyManager.crossCheckDaysWithCheckInsFromFirstore(userId: user)
                     let seconds = 2.0
-                    //                    DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
-                    //                        for i in 0...historyManager.days.count - 1  {
-                    //                            print(historyManager.days[i].formattedDateForFirestore)
-                    //                            print(historyManager.days[i].checkInPremiumPhoto != nil)
-                    //                        }
-                    //                        historyManager.attatchPremiumCheckInPhotos(userId: user)
-                    //                    }
-                    
                 } else {
                     print("no user yet")
                 }
@@ -249,14 +219,6 @@ struct DayBubble: View {
                             Circle()
                                 .frame(width: 40, height: 40)
                                 .foregroundColor(.green)
-//                            if let isPhoto = self.doesCheckInPhotoExist {
-//                                if isPhoto {
-//                                    Image(uiImage: self.day!.checkInPremiumPhoto)
-//                                        .resizable()
-//                                        .frame(width: 40, height: 40)
-//                                        .clipShape(Circle())
-//                                }
-//                            }
                             if self.day!.doesCheckInPhotoExist == true {
                                 Image(uiImage: historyManager.checkInPremiumPhotos[self.day!.formattedDateForFirestore] ?? UIImage())
                                     .resizable()
@@ -268,7 +230,7 @@ struct DayBubble: View {
                     } else {
                         Circle()
                             .frame(width: 40, height: 40)
-                            .foregroundColor(.gray)
+                            .foregroundColor(.brown)
                     }
                     
                 }
@@ -356,27 +318,6 @@ struct JournalEntry: View {
     let backgroundImage = Image("notebook_paper")
     
     var body: some View {
-        //        backgroundImage
-        //            .resizable()
-        //            .frame(width: 360, height: 140)
-        //            .cornerRadius(20)
-        //            .blur(radius: 2)
-        //            .overlay {
-        //                VStack {
-        //                    HStack() {
-        //                        Text(journalText)
-        //                            .font(.system(size: 15, design: .serif))
-        //                            .foregroundColor(.black)
-        //                        Spacer()
-        //                    }
-        //
-        //                    Spacer()
-        //                }
-        //                .padding(.leading, 30)
-        //                .padding(.top, 18)
-        //                .padding(.bottom, 10)
-        //                .padding(.trailing, 10)
-        //            }
         
         GoalCapsule(keyword: journalText, symbol: "pencil.circle", color: "white")
     }

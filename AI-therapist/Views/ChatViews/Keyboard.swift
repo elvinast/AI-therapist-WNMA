@@ -14,7 +14,7 @@ struct AdaptsToKeyboard: ViewModifier {
     func body(content: Content) -> some View {
         GeometryReader { geometry in
             content
-                .padding(.bottom, self.currentHeight * 0.65)
+                .padding(.bottom, self.currentHeight * 0.5)
                 .onAppear(perform: {
                     NotificationCenter.Publisher(center: NotificationCenter.default, name: UIResponder.keyboardWillShowNotification)
                         .merge(with: NotificationCenter.Publisher(center: NotificationCenter.default, name: UIResponder.keyboardWillChangeFrameNotification))
@@ -24,7 +24,7 @@ struct AdaptsToKeyboard: ViewModifier {
                             }
                     }
                     .map { rect in
-                        rect.height - geometry.safeAreaInsets.bottom
+                        rect.height - 50
                     }
                     .subscribe(Subscribers.Assign(object: self, keyPath: \.currentHeight))
                     
