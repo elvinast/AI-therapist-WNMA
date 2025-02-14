@@ -59,8 +59,6 @@ struct ForumDetailedView: View {
                 
                 ScrollView {
                     VStack(alignment: .leading) {
-                        // Google Mobile Ad
-                        
                         // look up the username with their id
                         ForEach(posts, id: \.id) { post in
                             if post.id != nil {
