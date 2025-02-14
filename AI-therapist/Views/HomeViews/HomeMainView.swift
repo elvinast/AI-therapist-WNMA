@@ -27,60 +27,18 @@ struct HomeMainView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Image("AI-therapist_Home_BG")
-                    .resizable()
-                    .scaledToFill()
+                LinearGradient(gradient: Gradient(colors: [Color("WarmBeige"), Color("SoftCoral")]),
+                               startPoint: .topLeading,
+                               endPoint: .bottomTrailing)
                     .edgesIgnoringSafeArea(.all)
                 
                 VStack {
                     
                     HStack {
-                        // User Image
-                        // TODO: remove premium users
-                        if let isPremiumUser = profileStateManager.userProfile?.isPremiumUser {
-                            if !isPremiumUser {
-                                Image(homeManager.userProfilePhoto)
-                                    .resizable()
-                                    .frame(width: 50, height: 50, alignment: .leading)
-                                    .clipShape(Circle())
-                                    .padding(.trailing, 10)
-                            } else {
-                                if let userHasCustomPhoto = self.profileStateManager.userProfile?.doesPremiumUserHaveCustomProfilePicture {
-                                    if userHasCustomPhoto {
-                                        if let image = profileStateManager.premiumUserProfilePicture {
-                                            Image(uiImage: image)
-                                                .resizable()
-                                                .frame(width: 50, height: 50, alignment: .leading)
-                                                .clipShape(Circle())
-                                                .padding(.trailing, 10)
-                                        }
-                                    } else {
-                                        Image(homeManager.userProfilePhoto)
-                                            .resizable()
-                                            .frame(width: 50, height: 50, alignment: .leading)
-                                            .clipShape(Circle())
-                                            .padding(.trailing, 10)
-                                    }
-                                }
-                            }
-                        }
-
                         Text ("Hi, \(homeManager.userFirstName)!")
                             .foregroundColor(.black)
                             .font(.system(size: 18, design: .serif))
                             .animation(.easeInOut(duration: 1.0))
-                        
-                        // Notifcation Bell
-                        //                        Image(systemName: "bell.fill")
-                        //                            .resizable()
-                        //                            .frame(width: 24, height: 26, alignment: .leading)
-                        //                            .padding(.leading, 180)
-                        //                            .foregroundColor(.black)
-                        //
-                        //                        Circle()
-                        //                            .frame(width: 10, height: 10)
-                        //                            .foregroundColor(.red)
-                        //                            .offset(x: -20, y:-10)
                         Spacer()
                         
                         // AI-therapist Icon
@@ -88,7 +46,7 @@ struct HomeMainView: View {
                             .resizable()
                             .frame(width: 60, height: 60)
                     }
-                    .padding(.top, 40)
+//                    .padding(.top, 40)
                     .padding(.leading, 25)
                     .padding(.trailing, 25)
                     
@@ -115,8 +73,8 @@ struct HomeMainView: View {
                                 .font(.system(size: 16, design: .serif))
                                 .padding(.leading, 25)
                                 .padding(.trailing, 25)
-                                .padding(.top, 20)
-                                .padding(.bottom, 20)
+                                .padding(.top, 12)
+                                .padding(.bottom, 12)
                                 .frame(alignment: .center)
                         
                             
@@ -125,15 +83,16 @@ struct HomeMainView: View {
                                     print("User wanted to check in")
                                     homeManager.isCheckInPopupShowing = true
                                 }) {
-                                    RoundedRectangle(cornerRadius: 40)
-                                        .frame(maxWidth: 300, minHeight: 50, maxHeight: 200)
-                                        .overlay {
-                                            ZStack {
-                                                Text("Check In")
-                                                    .foregroundColor(.black)
-                                                    .font(.system(size: 15, design: .serif))
-                                            }
-                                        }
+                                    Text("Fill in daily status")
+                                        .font(.headline)
+                                        .fontWeight(.medium)
+                                        .foregroundColor(.white)
+                                        .frame(maxWidth: .infinity)
+                                        .frame(height: 55)
+                                        .background(Color("SoftCoral"))
+                                        .cornerRadius(12)
+                                        .shadow(radius: 5)
+                                        .padding(.horizontal, 20)
                                 }
                                 .sheet(isPresented: $homeManager.isCheckInPopupShowing) {
                                     CheckInView()
@@ -145,11 +104,9 @@ struct HomeMainView: View {
                                             }
                                         }
                                 }
-                                //                    .padding(10)
                                 .foregroundColor(.white)
-                                .padding(.bottom, 20)
-                            } // else
-                            // Else the user has already checked in, don't display anything
+                                .padding(.bottom, 12)
+                            }
                             
                             // Goals
                             HStack {
@@ -213,15 +170,12 @@ struct HomeMainView: View {
                             
                             
                             EducationModule(isPremiumUser: self.profileStateManager.userProfile?.isPremiumUser ?? false)
-                            
-                            
                         }
                         .padding(.top, 10)
                     }
-                    .padding(.bottom, 100)
+                    .padding(.bottom, 10)
                 }
-                .padding(.top, 60)
-                
+                .padding(.top, 6)
             }
             .onAppear {
                 if let user = Auth.auth().currentUser?.uid {
@@ -310,25 +264,9 @@ struct ActivitiesModule: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    //                    ActivityView(bg_image: "Chat_BG", completed: false, title: "Personality Quiz")
-                    
-                    
-                    if let premium = isPremiumUser {
-                        if premium == false {
-                            CharacterAchetypeView()
-                            JournalingPromptsActivityView()
-                            // Locked activity
-                            LockedActivityEducationView()
-                        } else {
-                            CharacterAchetypeView()
-                            JournalingPromptsActivityView()
-                            HealthyRelationshipActivityView()
-                        }
-                    } else {
-                        CharacterAchetypeView()
-                        JournalingPromptsActivityView()
-                        HealthyRelationshipActivityView()
-                    }
+                    CharacterAchetypeView()
+                    JournalingPromptsActivityView()
+                    HealthyRelationshipActivityView()
                 }
             }
             
@@ -368,9 +306,6 @@ struct EducationModule: View {
                         ImpulsivityView()
                         StagesOfGriefView()
                     }
-                    
-                    
-                    
                 }
             }
         }

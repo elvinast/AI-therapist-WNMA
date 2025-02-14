@@ -49,31 +49,37 @@ struct CharacterAchetypeView_Previews: PreviewProvider {
 struct CharacterArchetypeInfoView: View {
     var body: some View {
         ZStack {
+            LinearGradient(
+                gradient: Gradient(colors: [Color("WarmBeige"), Color("SoftCoral")]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+            .edgesIgnoringSafeArea(.all)
+            
             VStack(alignment: .center) {
-                Text("Characer Archetype Quiz")
+                Text("Character Archetype Quiz")
                     .font(.system(size: 30, design: .serif))
                     .bold()
                     .padding(20)
                     .offset(y: -100)
+                    .multilineTextAlignment(.center)
                 
                 Text("Answer the following 36 questions on a scale from 1 to 5. 1 being strongly disagree and 5 being strongly agree. Based on your results we will let you know which character archetypes you most closely represent.")
                     .font(.system(size: 18, design: .serif))
                     .padding(20)
                     .offset(y: -100)
                 
-                
-                
-                
                 NavigationLink(destination: CharacterArchetypeDetailedView()) {
-                    RoundedRectangle(cornerRadius: 40)
-                        .frame(maxWidth: 300, minHeight: 50, maxHeight: 50)
-                        .overlay {
-                            ZStack {
-                                Text("Begin")
-                                    .foregroundColor(.black)
-                                    .font(.system(size: 15, design: .monospaced))
-                            }
-                        }
+                    Text("Begin")
+                        .font(.headline)
+                        .fontWeight(.medium)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 55)
+                        .background(Color("SoftCoral"))
+                        .cornerRadius(12)
+                        .shadow(radius: 5)
+                        .padding(.horizontal, 20)
                 }
             }
         }
@@ -327,16 +333,3 @@ struct CharacterArchetypeDetailedView: View {
         .environmentObject(characterArchetypeManager)
     }
 }
-
-
-
-//struct CharacterArchetypeResultsView: View {
-//    @EnvironmentObject var characterArchetypeManager: CharacterArchetypeManager
-//    var body: some View {
-//
-//
-////        .onAppear {
-////            characterArchetypeManager.calculateArchetypes()
-////        }
-//    }
-//}

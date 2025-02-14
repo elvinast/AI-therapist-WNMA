@@ -25,11 +25,10 @@ struct ForumDetailedView: View {
     var body: some View {
         
         ZStack {
-            // This is the background image.
-            Image("Dark_Hills_BG")
-                .resizable()
-                .scaledToFill()
-                .edgesIgnoringSafeArea(.all)
+            LinearGradient(gradient: Gradient(colors: [Color("WarmBeige"), Color("SoftCoral")]),
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing)
+                 .edgesIgnoringSafeArea(.all)
             
             // Post List
             
@@ -60,8 +59,6 @@ struct ForumDetailedView: View {
                 
                 ScrollView {
                     VStack(alignment: .leading) {
-                        // Google Mobile Ad
-                        
                         // look up the username with their id
                         ForEach(posts, id: \.id) { post in
                             if post.id != nil {
@@ -85,7 +82,7 @@ struct ForumDetailedView: View {
                             Image(systemName: "arrow.down.circle")
                                 .resizable()
                                 .frame(width: 30, height: 30)
-                                .foregroundColor(.white)
+                                .foregroundColor(.gray)
                         }
                     }
                     
@@ -94,9 +91,9 @@ struct ForumDetailedView: View {
                 .offset(y: -60)
                 .padding(.top, 40)
                 
-            }.padding(.top, 80)
+            }.padding(.top, 8)
         }
-        .foregroundColor(Color(uiColor: .white))
+        .foregroundColor(Color(uiColor: .gray))
         .onAppear {
             retrievePostsInit()
         }
@@ -326,6 +323,6 @@ struct Post: View {
 
         
         Divider()
-            .background(Color.white)
+            .background(Color.gray)
     }
 }

@@ -39,78 +39,8 @@ struct ProfileSettingsView: View {
     
     var body: some View {
         ZStack {
-            Image("Profile_BG2")
-                .resizable()
-                .scaledToFill()
-                .edgesIgnoringSafeArea(.all)
-            
-            VStack {
+//            VStack {
                 List {
-                    HStack(alignment: .center) {
-                        
-                        ZStack {
-                            // Profile Photo
-                            if let isPremiumUser = profileStateManager.userProfile?.isPremiumUser {
-                                if !isPremiumUser {
-                                    if let profPic = profileStateManager.userProfile?.userPhotoNonPremium {
-                                        Image(profPic)
-                                            .resizable()
-                                            .frame(width: 80, height: 80, alignment: .leading)
-                                            .clipShape(Circle())
-                                            .padding(.trailing, 10)
-                                    }
-                                } else {
-                                    if let hasPremiumPhoto = profileStateManager.userProfile?.doesPremiumUserHaveCustomProfilePicture {
-                                        if hasPremiumPhoto {
-                                            if let image = profileStateManager.premiumUserProfilePicture {
-                                                Image(uiImage: image)
-                                                    .resizable()
-                                                    .frame(width: 80, height: 80, alignment: .leading)
-                                                    .clipShape(Circle())
-                                                    .padding(.trailing, 10)
-                                                    .overlay(alignment: .topTrailing) {
-                                                        // upload user premium button
-                                                        Button(action: {
-                                                            profileStateManager.isUploadProfilePhotoPopupShowing = true
-                                                        }) {
-                                                            Image(systemName: "pencil.circle.fill")
-                                                                .symbolRenderingMode(.multicolor)
-                                                                .font(.system(size: 30))
-                                                                .foregroundColor(.accentColor)
-                                                        }.sheet(isPresented: $profileStateManager.isUploadProfilePhotoPopupShowing) {
-                                                            UploadProfilePhotoPopup()
-                                                        }
-                                                    }
-                                            }
-                                        } else {
-                                            if let profPic = profileStateManager.userProfile?.userPhotoNonPremium {
-                                                Image(profPic)
-                                                    .resizable()
-                                                    .frame(width: 80, height: 80, alignment: .leading)
-                                                    .clipShape(Circle())
-                                                    .padding(.trailing, 10)
-                                                    .overlay(alignment: .topTrailing) {
-                                                        // upload user premium button
-                                                        Button(action: {
-                                                            profileStateManager.isUploadProfilePhotoPopupShowing = true
-                                                        }) {
-                                                            Image(systemName: "pencil.circle.fill")
-                                                                .symbolRenderingMode(.multicolor)
-                                                                .font(.system(size: 30))
-                                                                .foregroundColor(.accentColor)
-                                                        }.sheet(isPresented: $profileStateManager.isUploadProfilePhotoPopupShowing) {
-                                                            UploadProfilePhotoPopup()
-                                                        }
-                                                    }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                                
-                        }
-                    }
-                    
                     Section(header: Text("AI-therapist")) {
                         Link("Terms of Use (EULA)", destination: URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!)
                         
@@ -181,12 +111,8 @@ struct ProfileSettingsView: View {
                                         presentEditNameAlert = false
                                     }.foregroundColor(.blue)
                                 }
-                                
                             }
-                            
                         }
-                        
-                        
                     }
                     
                     Section(header: Text("Community Forum")) {
@@ -233,13 +159,6 @@ struct ProfileSettingsView: View {
                                 
                             }
                         }
-                        
-//                        Toggle(isOn: $profileStateManager.isForumAnon, label: {
-//                            Text("Appear anonymous on the forum")
-//                        })
-//                        Toggle(isOn: $profileStateManager.isProfanityFiltered, label: {
-//                            Text("Filter profanity")
-//                        })
                     }
                     
                     Section(header: Text("Account")) {
@@ -278,12 +197,8 @@ struct ProfileSettingsView: View {
                             }
                         }
                     }
-                    
                 }
             }
-        }.padding(.top, 100)
-        
-        
     }
 }
 

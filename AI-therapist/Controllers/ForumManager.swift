@@ -13,12 +13,9 @@ import FirebaseCore
 import FirebaseAuth
 import FirebaseFirestore
 import FirebaseFirestoreSwift
-//import GoogleMobileAds
 
 class ForumManager: ObservableObject {
         
-//    var posts: [ForumPost] = []
-    
     @Published var isCreatePostPopupShowing: Bool = false
     @Published var isCreateCommentPopupShowing: Bool = false
     
@@ -27,10 +24,9 @@ class ForumManager: ObservableObject {
     @Published var isDeletePostPopupAlertShowing: Bool = false
     @Published var isDeleteCommentPopupAlertShowing: Bool = false
     
-    // Firestore
+    // Firestore database
     let db = Firestore.firestore()
     
-//    @Published var isSinglePostFocused: Bool = false
     @Published var focusedPostID: String = ""
     @Published var focusedPostCategoryName: String = ""
     @Published var isFocusedPostLikedByCurrentUser: Bool = false
