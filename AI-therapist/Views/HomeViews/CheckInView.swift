@@ -24,9 +24,9 @@ struct CheckInView: View {
         NavigationView {
             
             ZStack {
-                Image("BG_checkin")
-                    .resizable()
-                    .scaledToFill()
+                LinearGradient(gradient: Gradient(colors: [Color("SoftCoral"), Color("SoftCoral")]),
+                               startPoint: .topLeading,
+                               endPoint: .bottomTrailing)
                     .edgesIgnoringSafeArea(.all)
                 
                 VStack {
@@ -34,7 +34,7 @@ struct CheckInView: View {
                         .font(.system(size: 30, design: .serif))
                         .foregroundColor(.white)
                         .bold()
-                        .padding(.bottom, 20)
+                        .padding(.bottom, 8)
                     ScrollView {
                         
                         // Goals
@@ -43,7 +43,7 @@ struct CheckInView: View {
                                 .foregroundColor(.white)
                                 .font(.system(size: 20, design: .serif))
                             
-                            TextField("Enter text", text: $checkInManager.goalOne)
+                            TextField("Enter text", text: $checkInManager.goalOne, prompt: Text("Enter text").foregroundColor(.white))
                                 .font(.system(size: 20, design: .serif))
                                 .padding(.leading, 10)
                                 .foregroundColor(.white)
@@ -55,7 +55,7 @@ struct CheckInView: View {
                                         .frame(minWidth: 200, minHeight: 100, maxHeight: 160)
                                 )
                             
-                            TextField("Enter text", text: $checkInManager.goalTwo)
+                            TextField("Enter text", text: $checkInManager.goalTwo, prompt: Text("Enter text").foregroundColor(.white))
                                 .font(.system(size: 20, design: .serif))
                                 .padding(.leading, 10)
                                 .foregroundColor(.white)
@@ -67,7 +67,7 @@ struct CheckInView: View {
                                         .frame(minWidth: 200, minHeight: 100, maxHeight: 160)
                                 )
                             
-                            TextField("Enter text", text: $checkInManager.goalThree)
+                            TextField("Enter text", text: $checkInManager.goalThree, prompt: Text("Enter text").foregroundColor(.white))
                                 .font(.system(size: 20, design: .serif))
                                 .padding(.leading, 10)
                                 .foregroundColor(.white)
@@ -87,10 +87,10 @@ struct CheckInView: View {
                                 .foregroundColor(.white)
                                 .font(.system(size: 20, design: .serif))
                             
-                            TextField("Enter text", text: $checkInManager.gratitude)
+                            TextField("Enter text", text: $checkInManager.gratitude, prompt: Text("Enter text").foregroundColor(.white))
                                 .font(.system(size: 20, design: .serif))
                                 .padding(.leading, 10)
-                                .foregroundColor(.white)
+                                .foregroundColor(.white) // Ensures the text itself is white
                                 .padding(20)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 10)
@@ -99,6 +99,7 @@ struct CheckInView: View {
                                         .frame(minWidth: 200, minHeight: 100, maxHeight: 160)
                                 )
                                 .padding(.bottom, 40)
+
                         }
                         
                         // Mood sliders
@@ -229,7 +230,7 @@ struct CheckInView: View {
                                         .padding(.bottom, 15)
                                 }
                                 
-                                TextField("Enter text", text: $checkInManager.journalEntry, axis: .vertical)
+                                TextField("Enter text", text: $checkInManager.journalEntry, prompt: Text("Enter text").foregroundColor(.white), axis: .vertical)
                                     .font(.system(size: 20, design: .serif))
                                     .padding(.leading, 10)
                                     .padding(.trailing, 10)
@@ -249,32 +250,6 @@ struct CheckInView: View {
                             .padding(.trailing, 20)
                             .padding(.bottom, 60)
                             
-                            // Daily Photo (Premium Only)
-                            VStack {
-                                    Text("Upload a photo that represents today")
-                                        .foregroundColor(.white)
-                                        .font(.system(size: 18, design: .serif))
-                                        .bold()
-                                    
-                                ZStack {
-                                    if let data = checkInManager.data, let image = UIImage(data: data) {
-                                        Image(uiImage: image)
-                                            .resizable()
-                                            .scaledToFit()
-                                            .clipShape(Circle())
-                                            .frame(width: 120, height: 120)
-                                    } else {
-                                        Circle()
-                                            .frame(width: 80, height: 80)
-                                            .foregroundColor(.gray)
-                                            .opacity(0.6)
-                                    }
-                                }
-                                
-                            }
-                            .padding(.bottom, 40)
-                            
-                            
                             if checkInManager.isErrorInCheckIn {
                                 Text(checkInManager.errorText)
                                     .foregroundColor(.red)
@@ -291,18 +266,16 @@ struct CheckInView: View {
                                     homeManager.isCheckInPopupShowing = false
                                 }
                             }) {
-//                                Text("Finish Check In")
-//                                    .font(.system(size: 20, design: .serif))
-                                
-                                RoundedRectangle(cornerRadius: 40)
-                                    .frame(maxWidth: 300, minHeight: 50, maxHeight: 50)
-                                    .overlay {
-                                        ZStack {
-                                            Text("Finish Check in")
-                                                .foregroundColor(.black)
-                                                .font(.system(size: 15, design: .serif))
-                                        }
-                                    }
+                                Text("Finish check in")
+                                    .font(.headline)
+                                    .fontWeight(.medium)
+                                    .foregroundColor(Color("SoftCoral"))
+                                    .frame(maxWidth: .infinity)
+                                    .frame(height: 55)
+                                    .background(Color("WarmBeige"))
+                                    .cornerRadius(12)
+                                    .shadow(radius: 5)
+                                    .padding(.horizontal, 20)
                                 
                                 
                             }
@@ -311,10 +284,8 @@ struct CheckInView: View {
                     }
                     .scrollDismissesKeyboard(.immediately)
                 }
-                .padding(.top, 140)
-                .padding(.bottom, 40)
-
-                
+                .padding(.top, 25)
+                .padding(.bottom, 25)
             }
         }.environmentObject(checkInManager)
     }

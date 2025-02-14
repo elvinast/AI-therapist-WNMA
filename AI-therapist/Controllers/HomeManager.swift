@@ -21,7 +21,7 @@ class HomeManager: ObservableObject {
     @Published var userProfilePhoto: String = "default_prof_pic"
     
     
-    @Published var todaysCheckIn: CheckIn? = CheckIn(userId: nil, date: "", goals: ["Please check-in to set your goals", "", ""], gratitude: "I'm grateful for you, user!", happinessScore: -1, depressionScore: -1, anxietyScore: -1, journalEntry: "")
+    @Published var todaysCheckIn: CheckIn? = CheckIn(userId: nil, date: "", goals: ["Please fill-in your goals for today", "Please fill-in your goals for today", "Please fill-in your goals for today"], gratitude: "I'm grateful for you, user!", happinessScore: -1, depressionScore: -1, anxietyScore: -1, journalEntry: "")
     
     
     @Published var quoteOfTheDay: String = ""
@@ -33,20 +33,27 @@ class HomeManager: ObservableObject {
     // TODO(bendreyer): We're doing this read of the signed in userProfile twice, once here and once in the profileStatus manager. We can consolidate.
     let userProfile: UserProfile? = nil
     
+    let quotes: [String] = [
+        "Breathe in calm, breathe out stress. 🌿",
+        "You are exactly where you need to be. ✨",
+        "Healing is a journey, not a destination. 💚",
+        "Your feelings are valid, and so are you. 🌸",
+        "Be kind to yourself today. 💚",
+        "Small steps create big changes. 🌱",
+        "You deserve peace and happiness. ☀️",
+        "Let go of what no longer serves you. 🍃",
+        "Progress, not perfection. 🏔️",
+        "Trust yourself. You are capable and strong. 💫"
+    ]
+
     
     // initiate variables in the HomeManager on appear
     func userInit(userID: String) {
         // Get the day of the month for the quote of the day
         let day = Calendar.current.component(.day, from: Date())
 //        print("day of the month: \(day)")
-        let quoteRef = db.collection("quotes").document("\(day)")
-        quoteRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                self.quoteOfTheDay = document.data()!["quote"] as! String
-            } else {
-//                print("Quote of the day does exist")
-            }
-        }
+        
+        quoteOfTheDay = quotes.randomElement() ?? "Be kind to yourself today. 🤍"
         
         let userDocRef = db.collection("users").document(userID)
         

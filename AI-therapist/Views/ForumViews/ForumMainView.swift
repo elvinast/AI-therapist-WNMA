@@ -18,18 +18,12 @@ struct ForumMainView: View {
     // Controls display of sidebar
     @State var showSidebar: Bool = false
     
-    // Todo: Move this to the user's profile, should be stored in firebase I guess?
-    @State var forumProfanityToggle: Bool = false
-    
     var body: some View {
         
         SideBarStack(sidebarWidth: 320, showSidebar: $showSidebar) {
-            // Sidebar content here
-            
             NavigationView {
                 ZStack {
-                    VStack(alignment: .center) {
-                        
+                    VStack {
                         HStack {
                             if let profPic = profileStateManager.userProfile?.userPhotoNonPremium {
                                 Image(profPic)
@@ -46,116 +40,87 @@ struct ForumMainView: View {
                             if let displayName = profileStateManager.userProfile?.displayName {
                                 Text(displayName)
                                     .font(.system(size: 18, design: .serif))
+                                    .foregroundColor(.black)
                             } else {
-                                Text("user")
+                                Text("User")
                                     .font(.system(size: 18, design: .serif))
+                                    .foregroundColor(.black)
                             }
-                            
-                            //                            .foregroundColor(.white)
                         }
+                        .padding(.top, 50)
                         .padding(.bottom, 15)
                         
-                        
-                        if let user = profileStateManager.userProfile {
-                            NavigationLink(destination: MyPosts(userID: user.id), label: {
-                                Rectangle()
-                                    .frame(width: 220, height: 50)
-                                    .foregroundColor(.blue)
-                                    .cornerRadius(10)
-                                    .overlay() {
-                                        Text("My Posts")
-                                            .foregroundColor(.white)
-                                            .font(.system(size: 18, design: .serif))
-                                    }
+                        VStack(spacing: 15) {
+                            NavigationLink(destination: MyPosts(userID: profileStateManager.userProfile?.id), label: {
+                                CustomButton(title: "My Posts")
                             })
-                            .padding(.bottom, 15)
-                        }
-                        
-                        if let user = profileStateManager.userProfile {
-                            NavigationLink(destination: MyComments(userID: user.id), label: {
-                                Rectangle()
-                                    .frame(width: 220, height: 50)
-                                    .foregroundColor(.blue)
-                                    .cornerRadius(10)
-                                    .overlay() {
-                                        Text("My Comments")
-                                            .foregroundColor(.white)
-                                            .font(.system(size: 18, design: .serif))
-                                    }
+                            
+                            NavigationLink(destination: MyComments(userID: profileStateManager.userProfile?.id), label: {
+                                CustomButton(title: "My Comments")
                             })
-                            .padding(.bottom, 15)
-                        }
-                        
-                        if let user = profileStateManager.userProfile {
-                            NavigationLink(destination: LikedPosts(userID: user.id), label: {
-                                Rectangle()
-                                    .frame(width: 220, height: 50)
-                                    .foregroundColor(.blue)
-                                    .cornerRadius(10)
-                                    .overlay() {
-                                        Text("Liked Posts")
-                                            .foregroundColor(.white)
-                                            .font(.system(size: 18, design: .serif))
-                                    }
+                            
+                            NavigationLink(destination: LikedPosts(userID: profileStateManager.userProfile?.id), label: {
+                                CustomButton(title: "Liked Posts")
                             })
-                            .padding(.bottom, 15)
                         }
-                        
-                        
+                        .padding(.horizontal, 20)
                     }
                     .padding(.bottom, 400)
-                    .padding(.leading, 20)
-                    .padding(.trailing, 20)
-                    
                 }
             }.environmentObject(forumManager)
             
         } content: {
             NavigationView {
                 ZStack {
-                    // This is the background image.
-                    Image("Dark_Hills_BG")
-                        .resizable()
-                        .scaledToFill()
-                        .edgesIgnoringSafeArea(.all)
+                    LinearGradient(gradient: Gradient(colors: [Color("WarmBeige"), Color("WarmBeige")]),
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing)
+                         .edgesIgnoringSafeArea(.all)
                     
                     VStack(alignment: .leading) {
-                        // Icons
                         HStack {
-                            // Forum side bar
                             Button(action: {
-                                print("User wanted to open side bar view")
                                 showSidebar = true
                             }) {
                                 Image(systemName: "text.alignleft")
                                     .resizable()
-                                    .frame(width: 20, height: 20)
+                                    .frame(width: 24, height: 20)
+                                    .foregroundColor(.black)
                             }
-                            .padding(.trailing, 5)
-                            
-                            // Notifications
-                            Image(systemName: "bell")
-                                .resizable()
-                                .frame(width: 20, height: 20)
-                            
+                            Spacer()
                         }
-                        .padding(.top, 80)
-                        .padding(.leading, 20)
-                        .padding(.bottom, 20)
+                        .padding(.top, 20)
+                        .padding(.horizontal, 20)
                         
-                        
-                        ZStack {
-                            ForumCategoriesView()
-                        }
+                        ForumCategoriesView()
+                            .padding(.top, 10)
                     }
                 }
             }
-            .foregroundColor(Color(uiColor: .white))
+            .foregroundColor(.black)
             .environmentObject(forumManager)
-        }.edgesIgnoringSafeArea(.all)
+        }
+        .edgesIgnoringSafeArea(.all)
     }
-    
 }
+
+// Custom Button for Navigation Links
+struct CustomButton: View {
+    let title: String
+    
+    var body: some View {
+        Text(title)
+            .font(.headline)
+            .fontWeight(.medium)
+            .foregroundColor(.white)
+            .frame(maxWidth: .infinity)
+            .frame(height: 55)
+            .background(Color("SoftCoral"))
+            .cornerRadius(12)
+            .shadow(radius: 5)
+    }
+}
+
 
 struct ForumMainView_Previews: PreviewProvider {
     static var previews: some View {

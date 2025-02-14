@@ -15,189 +15,121 @@ struct ProfileMainView: View {
     @EnvironmentObject var profileStateManager: ProfileStatusManager
     
     var body: some View {
-        
         ZStack {
-            Image("Profile_BG2")
-                .resizable()
-                .scaledToFill()
+            // Background Gradient with a slight radial focus
+            LinearGradient(gradient: Gradient(colors: [Color("WarmBeige"), Color("GentleGold").opacity(0.8)]),
+                           startPoint: .top,
+                           endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
             
-            VStack {
+            VStack(spacing: 20) {
+                // Top Navigation
                 HStack {
                     Button(action: {
                         authStateManager.logOut()
                     }) {
-                        RoundedRectangle(cornerRadius: 25)
-                            .foregroundColor(.red)
-                            .frame(width: 90, height: 50)
-                            .overlay {
-                                Text("Log Out")
-                                    .foregroundColor(.black)
-                                    .font(.system(size: 14, design: .serif))
-                            }
-                    }.padding(.leading, 20)
+                        HStack {
+                            Image(systemName: "arrow.left.circle.fill")
+                                .foregroundColor(Color.secondary)
+                                .font(.title2)
+                            Text("Log Out")
+                                .font(.headline)
+                                .foregroundColor(Color.secondary)
+                        }
+                    }
                     
                     Spacer()
-                    
                     
                     Button(action: {
                         profileStateManager.isProfileSettingsPopupShowing = true
                     }) {
-                        Image(systemName: "gearshape")
-                            .resizable()
-                            .frame(width: 40, height: 40)
-                            .foregroundColor(.white)
-                    }.sheet(isPresented: $profileStateManager.isProfileSettingsPopupShowing) {
+                        Image(systemName: "gearshape.fill")
+                            .font(.title2)
+                            .foregroundColor(Color.secondary)
+                    }
+                    .sheet(isPresented: $profileStateManager.isProfileSettingsPopupShowing) {
                         ProfileSettingsView()
                     }
-                    .padding(.trailing, 20)
                 }
-                .padding(.top, 40)
-                .padding(.bottom, 40)
+                .padding(.horizontal, 20)
+                .padding(.top, 20)
                 
-                HStack {
-                    
-                    // Non premium
-                    if let isPremiumUser = profileStateManager.userProfile?.isPremiumUser {
-                        if !isPremiumUser {
-                            if let profPic = profileStateManager.userProfile?.userPhotoNonPremium {
-                                Image(profPic)
-                                    .resizable()
-                                    .frame(width: 80, height: 80, alignment: .leading)
-                                    .clipShape(Circle())
-                                    .padding(.trailing, 10)
-                            }
-                        } else {
-                            if let hasPremiumPhoto = profileStateManager.userProfile?.doesPremiumUserHaveCustomProfilePicture {
-                                if hasPremiumPhoto {
-                                    if let image = profileStateManager.premiumUserProfilePicture {
-                                        Image(uiImage: image)
-                                            .resizable()
-                                            .frame(width: 80, height: 80, alignment: .leading)
-                                            .clipShape(Circle())
-                                            .padding(.trailing, 10)
-                                            .overlay(alignment: .topTrailing) {
-                                                // upload user premium button
-                                                Button(action: {
-                                                    profileStateManager.isUploadProfilePhotoPopupShowing = true
-                                                }) {
-                                                    Image(systemName: "pencil.circle.fill")
-                                                        .symbolRenderingMode(.multicolor)
-                                                        .font(.system(size: 30))
-                                                        .foregroundColor(.accentColor)
-                                                }.sheet(isPresented: $profileStateManager.isUploadProfilePhotoPopupShowing) {
-                                                    UploadProfilePhotoPopup()
-                                                }
-                                            }
-                                    }
-                                } else {
-                                    if let profPic = profileStateManager.userProfile?.userPhotoNonPremium {
-                                        Image(profPic)
-                                            .resizable()
-                                            .frame(width: 80, height: 80, alignment: .leading)
-                                            .clipShape(Circle())
-                                            .padding(.trailing, 10)
-                                            .overlay(alignment: .topTrailing) {
-                                                // upload user premium button
-                                                Button(action: {
-                                                    profileStateManager.isUploadProfilePhotoPopupShowing = true
-                                                }) {
-                                                    Image(systemName: "pencil.circle.fill")
-                                                        .symbolRenderingMode(.multicolor)
-                                                        .font(.system(size: 30))
-                                                        .foregroundColor(.accentColor)
-                                                }.sheet(isPresented: $profileStateManager.isUploadProfilePhotoPopupShowing) {
-                                                    UploadProfilePhotoPopup()
-                                                }
-                                            }
-                                    }
-                                }
-                            }
-                        }
+                // Profile Card
+                VStack(spacing: 8) {
+                    if let profPic = profileStateManager.userProfile?.userPhotoNonPremium {
+                        Image(profPic)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 110, height: 110)
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(Color.white.opacity(0.6), lineWidth: 3))
+                    } else {
+                        Image(systemName: "person.circle.fill")
+                            .resizable()
+                            .frame(width: 110, height: 110)
+                            .foregroundColor(.white.opacity(0.8))
                     }
                     
                     if let name = profileStateManager.userProfile?.name {
                         Text(name)
-                            .foregroundColor(.white)
-                            .font(.system(size: 20, design: .serif))
-                            .padding(.leading, 20)
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.white)
                     } else {
                         Text("User")
-                            .padding(.trailing, 30)
-                            .foregroundColor(.white)
-                            .font(.system(size: 20, design: .serif))
-                            .padding(.leading, 20)
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.white)
                     }
-                }
-                .padding(.bottom, 20)
-                
-                VStack {
+                    
                     if let displayName = profileStateManager.userProfile?.displayName {
                         Text(displayName)
-                            .foregroundColor(.white)
-                            .padding(.leading, 20)
-                            .font(.system(size: 20, design: .serif))
+                            .font(.subheadline)
+                            .foregroundColor(Color.white)
                     } else {
                         Text("Display Name")
-                            .foregroundColor(.white)
-                            .padding(.leading, 20)
-                            .font(.system(size: 20, design: .serif))
+                            .font(.subheadline)
+                            .foregroundColor(Color.white)
                     }
-                }
-                .padding(.bottom, 40)
-                
-                VStack {
+                    
                     if let email = profileStateManager.userProfile?.email {
                         Text(email)
-                            .foregroundColor(.white)
-                            .padding(.leading, 20)
-                            .font(.system(size: 20, design: .serif))
+                            .font(.footnote)
+                            .foregroundColor(Color.white)
                     } else {
                         Text("placeholder@email.com")
-                            .foregroundColor(.white)
-                            .padding(.leading, 20)
-                            .font(.system(size: 20, design: .serif))
+                            .font(.footnote)
+                            .foregroundColor(Color.white)
                     }
                 }
-                .padding(.bottom, 40)
+                .padding()
+                .background(Color.white.opacity(0.1))
+                .cornerRadius(20)
+                .shadow(radius: 3)
+                .padding(.horizontal, 20)
                 
+                // Separator
+                Rectangle()
+                    .frame(height: 1)
+                    .foregroundColor(Color.white)
+                    .padding(.horizontal, 40)
                 
-                VStack {
+                // Mood Section
+                VStack(spacing: 10) {
+                    Text("Today's Mood 🌿")
+                        .font(.headline)
+                        .foregroundColor(Color.secondary)
                     
-                    HStack {
-                        Text("Current Plan")
-                            .foregroundColor(.white)
-                            .bold()
-                            .font(.system(size: 20, design: .serif))
-                        
-                        
-                        if let isPremium = profileStateManager.userProfile?.isPremiumUser {
-                            if isPremium {
-                                Text("Premium")
-                                    .foregroundColor(.white)
-                                    .font(.system(size: 18, design: .serif))
-                            } else {
-                                Text("Basic")
-                                    .foregroundColor(.white)
-                                    .font(.system(size: 18, design: .serif))
-                            }
-                        } else {
-                            Text("Basic")
-                                .foregroundColor(.white)
-                                .font(.system(size: 18, design: .serif))
-                        }
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 40)
-                    .padding(.bottom, 20)
+                    Text("Feeling calm and balanced.")
+                        .font(.subheadline)
+                        .foregroundColor(Color.secondary)
+                        .italic()
                 }
-                
+                .padding(.horizontal, 20)
                 
                 Spacer()
-            }.padding(.top, 75)
-            
-            
-            
+            }
+            .padding(.top, 40)
         }
     }
 }

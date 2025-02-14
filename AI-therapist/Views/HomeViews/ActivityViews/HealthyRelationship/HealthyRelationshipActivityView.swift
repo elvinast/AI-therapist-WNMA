@@ -64,15 +64,16 @@ struct HealthyRelationshipInfoView: View {
                 
                 
                 NavigationLink(destination: HealthyRelationshipDetailedView()) {
-                    RoundedRectangle(cornerRadius: 40)
-                        .frame(maxWidth: 300, minHeight: 50, maxHeight: 50)
-                        .overlay {
-                            ZStack {
-                                Text("Begin")
-                                    .foregroundColor(.black)
-                                    .font(.system(size: 15, design: .monospaced))
-                            }
-                        }
+                    Text("Begin")
+                        .font(.headline)
+                        .fontWeight(.medium)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 55)
+                        .background(Color("SoftCoral"))
+                        .cornerRadius(12)
+                        .shadow(radius: 5)
+                        .padding(.horizontal, 20)
                 }
             }
         }
